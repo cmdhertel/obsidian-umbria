@@ -60,7 +60,7 @@ and their strength, the divider ornament, memento mori and animations.
 
 ```sh
 python3 build.py                     # writes theme.css
-python3 build.py --install ~/MyVault # also copies it into that vault
+python3 build.py --install ~/Documents/Notes # also copies it into the vault at that path
 ```
 
 The build embeds the fonts from `fonts/` and generates the contour-line SVG (Python 3 standard library only).
