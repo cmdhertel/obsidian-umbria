@@ -12,7 +12,7 @@ Dark mode is the heart of it; light mode is soft linen.
 - **One accent, earth tones.** Amber accent with moss, rust, slate, plum and honey for everything else. All headings share one colour and differ only in size and weight.
 - **Three wood tones for dark mode:** Ember (espresso, default), Pine (forest green), Autumn (deeper, reddish).
 - **Contour lines.** A topographic map behind the editor, in empty tabs and in the stoic callout. It fades towards the text and stays sharp on Retina and 5K displays.
-- **Quotes as the centrepiece.** Blockquotes and quote callouts get large serif text and a typographic quotation mark. The callout title becomes the source underneath.
+- **Quotes as the centrepiece.** Blockquotes and quote callouts get large serif text and a typographic quotation mark. The callout title is shown as the source underneath the quote.
 - **Typography.** Literata for notes, Inter for the interface, Cinzel "inscription" headings (switchable). All fonts are embedded, so nothing is loaded from the internet.
 - **Divider ornaments:** contour lines, an hourglass (memento mori), a wave, or none.
 - **Task states:** `[/]` in progress, `[!]` important, `[-]` cancelled, `[>]` deferred.
@@ -33,8 +33,8 @@ Each callout works with its English or its German name.
 | `[!gratitude]` | `[!dankbar]` | flame | honey |
 
 ```markdown
-> It is not that we have a short time to live, but that we waste a lot of it.
 > [!quote] Seneca · On the Shortness of Life
+> It is not that we have a short time to live, but that we waste a lot of it.
 ```
 
 ## Settings

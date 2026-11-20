@@ -743,8 +743,8 @@ select:focus {
 
 /* --------------------------------------------------------------------------
    QUOTES — the centrepiece
+   > [!quote] Seneca · On the Shortness of Life    ← the title is shown as the source below
    > It is not that we have a short time to live …
-   > [!quote] Seneca · On the Shortness of Life    ← the title becomes the source below
    -------------------------------------------------------------------------- */
 
 body:not(.umbria-zitat-schlicht) .markdown-rendered blockquote {
