@@ -4,7 +4,7 @@
 Usage:  python3 build.py                 -> writes ./theme.css
         python3 build.py --install VAULT -> also copies theme.css + manifest.json into VAULT/.obsidian/themes/Umbria
 """
-import base64, math, random, shutil, sys, pathlib, urllib.parse
+import base64, math, random, re, shutil, sys, pathlib, urllib.parse
 
 ROOT = pathlib.Path(__file__).resolve().parent
 SRC = ROOT / "src" / "theme.src.css"
@@ -40,7 +40,7 @@ def rdp(pts, eps):
 
 def smooth(pts):
     """Polyline as a Catmull-Rom curve (cubic Béziers) instead of corners."""
-    f = lambda v: f"{round(v, 2):g}"
+    f = lambda v: f"{round(v, 1):g}"
     if len(pts) < 3:
         return "M" + " ".join(f"{f(x)} {f(y)}" for x, y in pts[:1]) + "L" + " ".join(f"{f(x)} {f(y)}" for x, y in pts[1:])
     closed = pts[0] == pts[-1]
@@ -123,6 +123,21 @@ def topo_svg(w=720, h=480, step=2, levels=26, seed=TOPO_SEED, out_w=3840, nb=16)
     return "data:image/svg+xml," + urllib.parse.quote(svg, safe=" /:=',.-")
 
 
+def minify(css):
+    """Drop comments (except the header and the Style Settings block) and indentation."""
+    css = re.sub(r"/\*(?!\s*@settings)(?! Umbria \d).*?\*/", "", css, flags=re.S)
+    out, in_settings = [], False
+    for line in css.splitlines():
+        if "/* @settings" in line:
+            in_settings = True
+        if in_settings:
+            out.append(line)
+            in_settings = "*/" not in line
+        elif line.strip():
+            out.append(line.strip())
+    return "\n".join(out) + "\n"
+
+
 def main():
     css = SRC.read_text()
     fonts = "\n".join([
@@ -137,6 +152,7 @@ def main():
               .replace("@@TOPO_DARK@@", topo.replace("stroke='black'", "stroke='%23dfa456'"))
               .replace("@@TOPO_LIGHT@@", topo.replace("stroke='black'", "stroke='%23a86418'")))
     assert "@@" not in css, "placeholder left over"
+    css = minify(css)
     OUT.write_text(css)
     print(f"{OUT}: {len(css)/1024:.0f} KB (contour lines {len(topo)/1024:.0f} KB)")
     if "--install" in sys.argv:

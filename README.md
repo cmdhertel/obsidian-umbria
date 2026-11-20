@@ -51,8 +51,8 @@ and their strength, the divider ornament, memento mori and animations.
 
 ## Installation
 
-- **Manually:** download `theme.css` and `manifest.json` into `<vault>/.obsidian/themes/Umbria/`, then pick *Umbria* under *Settings → Appearance → Themes*.
-- **Community themes:** coming soon.
+- **Community themes:** open *Settings → Appearance → Themes → Manage*, search for *Umbria* and install it.
+- **Manually:** download `theme.css` and `manifest.json` from the latest release into the folder `.obsidian/themes/Umbria/` inside your vault, then pick *Umbria* under *Settings → Appearance → Themes*.
 
 ## Building from source
 
@@ -60,7 +60,7 @@ and their strength, the divider ornament, memento mori and animations.
 
 ```sh
 python3 build.py                     # writes theme.css
-python3 build.py --install ~/MyVault # and copies it into a vault
+python3 build.py --install ~/MyVault # also copies it into that vault
 ```
 
 The build embeds the fonts from `fonts/` and generates the contour-line SVG (Python 3 standard library only).
