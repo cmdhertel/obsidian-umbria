@@ -5,7 +5,7 @@
 Umbria is a warm, calm Obsidian theme for everyday notes, journaling and reading.
 Dark mode is the heart of it; light mode is soft linen.
 
-![Umbria](screenshot.png)
+![Umbria](preview.png)
 
 ## Features
 
