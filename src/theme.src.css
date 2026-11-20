@@ -1,9 +1,9 @@
-/* Hearth 1.0 — Obsidian theme by Gian Luca Hertel (MIT). Fonts: Inter, Literata, Cinzel (all SIL Open Font License 1.1) */
+/* Umbria 1.0 — Obsidian theme by Gian Luca Hertel (MIT). Fonts: Inter, Literata, Cinzel (all SIL Open Font License 1.1) */
 /*@@FONTS@@*/
 
 /* ==========================================================================
-   HEARTH 1.0 — an Obsidian theme for everyday notes
-   A cabin in the evening: dark wood, an amber lamp, rain on the window.
+   UMBRIA 1.0 — an Obsidian theme for everyday notes
+   Umbrian hills at dusk: carved letters, quiet contour lines, the warmth of espresso.
    Disciplined (one accent, all headings the same colour),
    sheltering (a tucked-in sidebar, soft warm shadows),
    curious (contour lines, quotes as the centrepiece, small details).
@@ -11,34 +11,34 @@
 
 /* @settings
 
-name: Hearth
-id: hearth
+name: Umbria
+id: umbria
 settings:
   -
-    id: hearth-h-farben
+    id: umbria-h-farben
     title: Colours
     type: heading
     level: 2
     collapsed: true
   -
-    id: hearth-holz
+    id: umbria-holz
     title: Wood (dark background)
     description: Base tone for dark mode. Light mode stays linen.
     type: class-select
     allowEmpty: false
-    default: hearth-bg-glut
+    default: umbria-bg-glut
     options:
       -
         label: Ember (espresso, default)
-        value: hearth-bg-glut
+        value: umbria-bg-glut
       -
         label: Pine (forest green)
-        value: hearth-bg-kiefer
+        value: umbria-bg-kiefer
       -
         label: Autumn (deeper, reddish)
-        value: hearth-bg-herbst
+        value: umbria-bg-herbst
   -
-    id: hearth-accent-rgb
+    id: umbria-accent-rgb
     title: Accent (amber)
     description: Links, active elements, ornaments. (The contour lines keep their amber.)
     type: variable-themed-color
@@ -47,7 +47,7 @@ settings:
     default-light: '#A86418'
     default-dark: '#DFA456'
   -
-    id: hearth-moss-rgb
+    id: umbria-moss-rgb
     title: Moss
     description: Completed tasks, tags, tips.
     type: variable-themed-color
@@ -56,7 +56,7 @@ settings:
     default-light: '#5E7045'
     default-dark: '#8F9C74'
   -
-    id: hearth-rust-rgb
+    id: umbria-rust-rgb
     title: Rust
     description: Errors, overdue dates, code.
     type: variable-themed-color
@@ -65,7 +65,7 @@ settings:
     default-light: '#A64B2A'
     default-dark: '#C4724E'
   -
-    id: hearth-slate-rgb
+    id: umbria-slate-rgb
     title: Slate
     description: Info, external links.
     type: variable-themed-color
@@ -74,41 +74,41 @@ settings:
     default-light: '#46657A'
     default-dark: '#8197A6'
   -
-    id: hearth-h-schrift
+    id: umbria-h-schrift
     title: Type & reading
     type: heading
     level: 2
     collapsed: true
   -
-    id: hearth-ueberschriften
+    id: umbria-ueberschriften
     title: Headings
     type: class-select
     allowEmpty: false
-    default: hearth-h-inschrift
+    default: umbria-h-inschrift
     options:
       -
         label: Inscription (Cinzel, default)
-        value: hearth-h-inschrift
+        value: umbria-h-inschrift
       -
         label: Like the body text, bolder
-        value: hearth-h-text
+        value: umbria-h-text
       -
         label: Serif display (large Literata)
-        value: hearth-h-display
+        value: umbria-h-display
   -
-    id: hearth-font-text
+    id: umbria-font-text
     title: Note font
     description: Only used when no text font is set under Settings → Appearance.
     type: variable-text
     default: '"Literata"'
   -
-    id: hearth-font-ui
+    id: umbria-font-ui
     title: Interface font
     description: Only used when no interface font is set under Settings → Appearance.
     type: variable-text
     default: '"Inter"'
   -
-    id: hearth-zeile
+    id: umbria-zeile
     title: Line width
     description: Applies when "Readable line length" is on.
     type: variable-number-slider
@@ -118,25 +118,25 @@ settings:
     step: 20
     format: px
   -
-    id: hearth-zitat-schlicht
+    id: umbria-zitat-schlicht
     title: Plain quotes
     description: Quotes without the big stage, as a simple indented block.
     type: class-toggle
     default: false
   -
-    id: hearth-h-motiv
+    id: umbria-h-motiv
     title: Motif
     type: heading
     level: 2
     collapsed: true
   -
-    id: hearth-topo-aus
+    id: umbria-topo-aus
     title: Turn off contour lines
     description: Behind the editor, in empty tabs and in stoic callouts.
     type: class-toggle
     default: false
   -
-    id: hearth-topo-staerke
+    id: umbria-topo-staerke
     title: Contour line strength
     type: variable-number-slider
     default: 0.3
@@ -144,37 +144,37 @@ settings:
     max: 0.8
     step: 0.02
   -
-    id: hearth-trenner
+    id: umbria-trenner
     title: Divider ornament
     type: class-select
     allowEmpty: false
-    default: hearth-orn-topo
+    default: umbria-orn-topo
     options:
       -
         label: Contour lines (default)
-        value: hearth-orn-topo
+        value: umbria-orn-topo
       -
         label: Hourglass (memento mori)
-        value: hearth-orn-sanduhr
+        value: umbria-orn-sanduhr
       -
         label: Wave
-        value: hearth-orn-welle
+        value: umbria-orn-welle
       -
         label: None
-        value: hearth-orn-keins
+        value: umbria-orn-keins
   -
-    id: hearth-memento
+    id: umbria-memento
     title: Memento mori in the status bar
     type: class-toggle
     default: false
   -
-    id: hearth-h-ruhe
+    id: umbria-h-ruhe
     title: Calm
     type: heading
     level: 2
     collapsed: true
   -
-    id: hearth-still
+    id: umbria-still
     title: No animations
     description: Turns off transitions and hover effects.
     type: class-toggle
@@ -186,42 +186,42 @@ settings:
    -------------------------------------------------------------------------- */
 
 body {
-  --hearth-font-text: "Literata";
-  --hearth-font-ui: "Inter";
-  --hearth-zeile: 720px;
-  --hearth-topo-staerke: 0.3;
-  --hearth-ease: 180ms ease;
+  --umbria-font-text: "Literata";
+  --umbria-font-ui: "Inter";
+  --umbria-zeile: 720px;
+  --umbria-topo-staerke: 0.3;
+  --umbria-ease: 180ms ease;
 
-  --font-text-theme: var(--hearth-font-text), "Iowan Old Style", Georgia, serif;
-  --font-interface-theme: var(--hearth-font-ui), -apple-system, "Segoe UI", sans-serif;
-  --hearth-inschrift: "Cinzel", "Trajan Pro", Georgia, serif;
-  --hearth-sans: var(--hearth-font-ui), -apple-system, "Segoe UI", sans-serif;
+  --font-text-theme: var(--umbria-font-text), "Iowan Old Style", Georgia, serif;
+  --font-interface-theme: var(--umbria-font-ui), -apple-system, "Segoe UI", sans-serif;
+  --umbria-inschrift: "Cinzel", "Trajan Pro", Georgia, serif;
+  --umbria-sans: var(--umbria-font-ui), -apple-system, "Segoe UI", sans-serif;
 
-  --hearth-accent: rgb(var(--hearth-accent-rgb));
-  --hearth-moss: rgb(var(--hearth-moss-rgb));
-  --hearth-rust: rgb(var(--hearth-rust-rgb));
-  --hearth-slate: rgb(var(--hearth-slate-rgb));
+  --umbria-accent: rgb(var(--umbria-accent-rgb));
+  --umbria-moss: rgb(var(--umbria-moss-rgb));
+  --umbria-rust: rgb(var(--umbria-rust-rgb));
+  --umbria-slate: rgb(var(--umbria-slate-rgb));
 
   /* Obsidian's base colours in earth tones. Callouts and plugins read these. */
-  --color-red-rgb: var(--hearth-rust-rgb);
-  --color-red: var(--hearth-rust);
-  --color-orange-rgb: var(--hearth-accent-rgb);
-  --color-orange: var(--hearth-accent);
-  --color-yellow-rgb: var(--hearth-honey-rgb);
-  --color-yellow: rgb(var(--hearth-honey-rgb));
-  --color-green-rgb: var(--hearth-moss-rgb);
-  --color-green: var(--hearth-moss);
-  --color-cyan-rgb: var(--hearth-slate-rgb);
-  --color-cyan: var(--hearth-slate);
-  --color-blue-rgb: var(--hearth-slate-rgb);
-  --color-blue: var(--hearth-slate);
-  --color-purple-rgb: var(--hearth-plum-rgb);
-  --color-purple: rgb(var(--hearth-plum-rgb));
-  --color-pink-rgb: var(--hearth-plum-rgb);
-  --color-pink: rgb(var(--hearth-plum-rgb));
-  --text-error: var(--hearth-rust);
-  --text-warning: var(--hearth-accent);
-  --text-success: var(--hearth-moss);
+  --color-red-rgb: var(--umbria-rust-rgb);
+  --color-red: var(--umbria-rust);
+  --color-orange-rgb: var(--umbria-accent-rgb);
+  --color-orange: var(--umbria-accent);
+  --color-yellow-rgb: var(--umbria-honey-rgb);
+  --color-yellow: rgb(var(--umbria-honey-rgb));
+  --color-green-rgb: var(--umbria-moss-rgb);
+  --color-green: var(--umbria-moss);
+  --color-cyan-rgb: var(--umbria-slate-rgb);
+  --color-cyan: var(--umbria-slate);
+  --color-blue-rgb: var(--umbria-slate-rgb);
+  --color-blue: var(--umbria-slate);
+  --color-purple-rgb: var(--umbria-plum-rgb);
+  --color-purple: rgb(var(--umbria-plum-rgb));
+  --color-pink-rgb: var(--umbria-plum-rgb);
+  --color-pink: rgb(var(--umbria-plum-rgb));
+  --text-error: var(--umbria-rust);
+  --text-warning: var(--umbria-accent);
+  --text-success: var(--umbria-moss);
 
   /* Shape: slightly rounded */
   --radius-s: 4px;
@@ -239,11 +239,11 @@ body {
   --tab-radius: 7px;
 
   /* Reading */
-  --file-line-width: var(--hearth-zeile);
+  --file-line-width: var(--umbria-zeile);
   --line-height-normal: 1.65;
   --p-spacing: 1.05rem;
-  --list-marker-color: var(--hearth-accent);
-  --list-marker-color-collapsed: var(--hearth-accent);
+  --list-marker-color: var(--umbria-accent);
+  --list-marker-color-collapsed: var(--umbria-accent);
   --bold-weight: 650;
 
   /* Links & selection */
@@ -251,61 +251,61 @@ body {
   --link-color-hover: var(--text-accent-hover);
   --link-decoration: none;
   --link-decoration-hover: none;
-  --link-external-color: var(--hearth-slate);
-  --link-external-color-hover: var(--hearth-slate);
+  --link-external-color: var(--umbria-slate);
+  --link-external-color-hover: var(--umbria-slate);
   --link-external-decoration: none;
   --link-unresolved-opacity: 0.6;
   --link-unresolved-decoration-style: dotted;
-  --link-unresolved-decoration-color: rgba(var(--hearth-accent-rgb), 0.5);
-  --text-highlight-bg: rgba(var(--hearth-accent-rgb), 0.24);
-  --text-highlight-bg-active: rgba(var(--hearth-accent-rgb), 0.42);
-  --text-selection: rgba(var(--hearth-accent-rgb), 0.22);
+  --link-unresolved-decoration-color: rgba(var(--umbria-accent-rgb), 0.5);
+  --text-highlight-bg: rgba(var(--umbria-accent-rgb), 0.24);
+  --text-highlight-bg-active: rgba(var(--umbria-accent-rgb), 0.42);
+  --text-selection: rgba(var(--umbria-accent-rgb), 0.22);
 
-  --checkbox-color: var(--hearth-moss);
-  --checkbox-color-hover: var(--hearth-moss);
+  --checkbox-color: var(--umbria-moss);
+  --checkbox-color-hover: var(--umbria-moss);
   --checkbox-border-color: var(--text-faint);
-  --checkbox-border-color-hover: var(--hearth-accent);
+  --checkbox-border-color-hover: var(--umbria-accent);
   --checkbox-marker-color: var(--background-primary);
   --checklist-done-color: var(--text-faint);
   --checklist-done-decoration: line-through;
 
   /* Callouts */
-  --callout-default: var(--hearth-slate-rgb);
-  --callout-info: var(--hearth-slate-rgb);
-  --callout-todo: var(--hearth-accent-rgb);
-  --callout-summary: var(--hearth-slate-rgb);
-  --callout-tip: var(--hearth-moss-rgb);
-  --callout-success: var(--hearth-moss-rgb);
-  --callout-important: var(--hearth-accent-rgb);
-  --callout-question: var(--hearth-slate-rgb);
-  --callout-warning: var(--hearth-accent-rgb);
-  --callout-fail: var(--hearth-rust-rgb);
-  --callout-error: var(--hearth-rust-rgb);
-  --callout-bug: var(--hearth-rust-rgb);
-  --callout-example: var(--hearth-plum-rgb);
-  --callout-quote: var(--hearth-accent-rgb);
+  --callout-default: var(--umbria-slate-rgb);
+  --callout-info: var(--umbria-slate-rgb);
+  --callout-todo: var(--umbria-accent-rgb);
+  --callout-summary: var(--umbria-slate-rgb);
+  --callout-tip: var(--umbria-moss-rgb);
+  --callout-success: var(--umbria-moss-rgb);
+  --callout-important: var(--umbria-accent-rgb);
+  --callout-question: var(--umbria-slate-rgb);
+  --callout-warning: var(--umbria-accent-rgb);
+  --callout-fail: var(--umbria-rust-rgb);
+  --callout-error: var(--umbria-rust-rgb);
+  --callout-bug: var(--umbria-rust-rgb);
+  --callout-example: var(--umbria-plum-rgb);
+  --callout-quote: var(--umbria-accent-rgb);
   --callout-padding: 14px 18px;
   --callout-title-weight: 650;
   --callout-blend-mode: normal;
 
   /* Headings: all the same colour, differing only in size and weight.
      Default = inscription (Cinzel). */
-  --hearth-head-font: var(--hearth-inschrift);
-  --inline-title-font: var(--hearth-head-font);
-  --inline-title-color: var(--hearth-head);
+  --umbria-head-font: var(--umbria-inschrift);
+  --inline-title-font: var(--umbria-head-font);
+  --inline-title-color: var(--umbria-head);
   --inline-title-weight: 600;
   --inline-title-size: 1.85em;
   --inline-title-line-height: 1.2;
-  --h1-font: var(--hearth-head-font);
-  --h2-font: var(--hearth-head-font);
-  --h3-font: var(--hearth-head-font);
+  --h1-font: var(--umbria-head-font);
+  --h2-font: var(--umbria-head-font);
+  --h3-font: var(--umbria-head-font);
   --h4-font: var(--font-text);
   --h5-font: var(--font-text);
-  --h6-font: var(--hearth-sans);
-  --h1-color: var(--hearth-head);
-  --h2-color: var(--hearth-head);
-  --h3-color: var(--hearth-head);
-  --h4-color: var(--hearth-head);
+  --h6-font: var(--umbria-sans);
+  --h1-color: var(--umbria-head);
+  --h2-color: var(--umbria-head);
+  --h3-color: var(--umbria-head);
+  --h4-color: var(--umbria-head);
   --h5-color: var(--text-muted);
   --h6-color: var(--text-muted);
   --h1-weight: 600;
@@ -323,41 +323,41 @@ body {
   --h1-line-height: 1.25;
   --h2-line-height: 1.3;
   --h3-line-height: 1.35;
-  --hearth-head-tracking: 0.05em;
+  --umbria-head-tracking: 0.05em;
 
   --hr-thickness: 1px;
   --blockquote-border-thickness: 0;
   --blockquote-color: var(--text-normal);
   --table-header-weight: 600;
   --table-border-color: var(--background-modifier-border);
-  --embed-border-start: 2px solid rgba(var(--hearth-accent-rgb), 0.4);
+  --embed-border-start: 2px solid rgba(var(--umbria-accent-rgb), 0.4);
 }
 
 /* ---------- DARK: Ember (espresso) ---------- */
 body.theme-dark {
   color-scheme: dark;
-  --hearth-topo-img: url("@@TOPO_DARK@@");
-  --hearth-accent-rgb: 223, 164, 86;
-  --hearth-moss-rgb: 143, 156, 116;
-  --hearth-rust-rgb: 196, 114, 78;
-  --hearth-slate-rgb: 129, 151, 166;
-  --hearth-honey-rgb: 226, 192, 112;
-  --hearth-plum-rgb: 166, 140, 160;
-  --hearth-shadow-rgb: 0, 0, 0;
+  --umbria-topo-img: url("@@TOPO_DARK@@");
+  --umbria-accent-rgb: 223, 164, 86;
+  --umbria-moss-rgb: 143, 156, 116;
+  --umbria-rust-rgb: 196, 114, 78;
+  --umbria-slate-rgb: 129, 151, 166;
+  --umbria-honey-rgb: 226, 192, 112;
+  --umbria-plum-rgb: 166, 140, 160;
+  --umbria-shadow-rgb: 0, 0, 0;
 
   --accent-h: 34;
   --accent-s: 68%;
   --accent-l: 61%;
-  --interactive-accent: rgb(var(--hearth-accent-rgb));
-  --interactive-accent-hover: color-mix(in srgb, rgb(var(--hearth-accent-rgb)) 85%, white);
+  --interactive-accent: rgb(var(--umbria-accent-rgb));
+  --interactive-accent-hover: color-mix(in srgb, rgb(var(--umbria-accent-rgb)) 85%, white);
   --interactive-accent-hsl: 34, 68%, 61%;
-  --interactive-accent-rgb: var(--hearth-accent-rgb);
-  --color-accent: rgb(var(--hearth-accent-rgb));
+  --interactive-accent-rgb: var(--umbria-accent-rgb);
+  --color-accent: rgb(var(--umbria-accent-rgb));
   --color-accent-hsl: 34, 68%, 61%;
-  --color-accent-1: color-mix(in srgb, rgb(var(--hearth-accent-rgb)) 88%, white);
-  --color-accent-2: color-mix(in srgb, rgb(var(--hearth-accent-rgb)) 76%, white);
-  --text-accent: color-mix(in srgb, rgb(var(--hearth-accent-rgb)) 92%, white);
-  --text-accent-hover: color-mix(in srgb, rgb(var(--hearth-accent-rgb)) 75%, white);
+  --color-accent-1: color-mix(in srgb, rgb(var(--umbria-accent-rgb)) 88%, white);
+  --color-accent-2: color-mix(in srgb, rgb(var(--umbria-accent-rgb)) 76%, white);
+  --text-accent: color-mix(in srgb, rgb(var(--umbria-accent-rgb)) 92%, white);
+  --text-accent-hover: color-mix(in srgb, rgb(var(--umbria-accent-rgb)) 75%, white);
   --text-on-accent: #1d140b;
   --text-on-accent-inverted: #1d140b;
 
@@ -367,19 +367,19 @@ body.theme-dark {
   --background-secondary-alt: #26211b;
   --background-modifier-border: #3a3129;
   --background-modifier-border-hover: #4b4035;
-  --background-modifier-border-focus: rgb(var(--hearth-accent-rgb));
-  --background-modifier-hover: rgba(var(--hearth-accent-rgb), 0.08);
-  --background-modifier-active-hover: rgba(var(--hearth-accent-rgb), 0.15);
+  --background-modifier-border-focus: rgb(var(--umbria-accent-rgb));
+  --background-modifier-hover: rgba(var(--umbria-accent-rgb), 0.08);
+  --background-modifier-active-hover: rgba(var(--umbria-accent-rgb), 0.15);
   --background-modifier-form-field: #14110e;
-  --background-modifier-error: rgb(var(--hearth-rust-rgb));
-  --background-modifier-success: rgb(var(--hearth-moss-rgb));
+  --background-modifier-error: rgb(var(--umbria-rust-rgb));
+  --background-modifier-success: rgb(var(--umbria-moss-rgb));
   --interactive-normal: #2a241d;
   --interactive-hover: #332b23;
   --text-normal: #e4d9c8;
   --text-muted: #a6988a;
   --text-faint: #6e6257;
-  --hearth-head: #f1e7d6;
-  --hearth-card: #26211b;
+  --umbria-head: #f1e7d6;
+  --umbria-card: #26211b;
   --code-background: #221d18;
   --titlebar-background: #151210;
   --titlebar-background-focused: #151210;
@@ -390,11 +390,11 @@ body.theme-dark {
   --divider-color: #2b241e;
   --shadow-s: 0 1px 2px rgba(0, 0, 0, 0.4);
   --shadow-l: 0 0 0 1px var(--background-modifier-border), 0 18px 44px rgba(0, 0, 0, 0.55);
-  --hearth-shadow: 0 1px 0 rgba(255, 220, 170, 0.035) inset, 0 10px 28px -14px rgba(0, 0, 0, 0.65);
+  --umbria-shadow: 0 1px 0 rgba(255, 220, 170, 0.035) inset, 0 10px 28px -14px rgba(0, 0, 0, 0.65);
 }
 
 /* Pine (forest green) */
-body.theme-dark.hearth-bg-kiefer {
+body.theme-dark.umbria-bg-kiefer {
   --background-primary: #1a1c17;
   --background-primary-alt: #171914;
   --background-secondary: #141612;
@@ -407,8 +407,8 @@ body.theme-dark.hearth-bg-kiefer {
   --text-normal: #e2dfcf;
   --text-muted: #a0a38f;
   --text-faint: #676c5c;
-  --hearth-head: #efeee0;
-  --hearth-card: #23261f;
+  --umbria-head: #efeee0;
+  --umbria-card: #23261f;
   --code-background: #1f221b;
   --titlebar-background: #121410;
   --titlebar-background-focused: #121410;
@@ -420,7 +420,7 @@ body.theme-dark.hearth-bg-kiefer {
 }
 
 /* Autumn (deeper, reddish) */
-body.theme-dark.hearth-bg-herbst {
+body.theme-dark.umbria-bg-herbst {
   --background-primary: #1e1612;
   --background-primary-alt: #1a130f;
   --background-secondary: #18110d;
@@ -433,8 +433,8 @@ body.theme-dark.hearth-bg-herbst {
   --text-normal: #eedcc6;
   --text-muted: #b39a84;
   --text-faint: #7b6555;
-  --hearth-head: #f8e8d2;
-  --hearth-card: #2a1f18;
+  --umbria-head: #f8e8d2;
+  --umbria-card: #2a1f18;
   --code-background: #251b15;
   --titlebar-background: #150f0b;
   --titlebar-background-focused: #150f0b;
@@ -448,28 +448,28 @@ body.theme-dark.hearth-bg-herbst {
 /* ---------- LIGHT: Linen ---------- */
 body.theme-light {
   color-scheme: light;
-  --hearth-topo-img: url("@@TOPO_LIGHT@@");
-  --hearth-accent-rgb: 168, 100, 24;
-  --hearth-moss-rgb: 94, 112, 69;
-  --hearth-rust-rgb: 166, 75, 42;
-  --hearth-slate-rgb: 70, 101, 122;
-  --hearth-honey-rgb: 160, 120, 20;
-  --hearth-plum-rgb: 118, 84, 110;
-  --hearth-shadow-rgb: 90, 60, 30;
+  --umbria-topo-img: url("@@TOPO_LIGHT@@");
+  --umbria-accent-rgb: 168, 100, 24;
+  --umbria-moss-rgb: 94, 112, 69;
+  --umbria-rust-rgb: 166, 75, 42;
+  --umbria-slate-rgb: 70, 101, 122;
+  --umbria-honey-rgb: 160, 120, 20;
+  --umbria-plum-rgb: 118, 84, 110;
+  --umbria-shadow-rgb: 90, 60, 30;
 
   --accent-h: 32;
   --accent-s: 75%;
   --accent-l: 38%;
-  --interactive-accent: rgb(var(--hearth-accent-rgb));
-  --interactive-accent-hover: color-mix(in srgb, rgb(var(--hearth-accent-rgb)) 85%, black);
+  --interactive-accent: rgb(var(--umbria-accent-rgb));
+  --interactive-accent-hover: color-mix(in srgb, rgb(var(--umbria-accent-rgb)) 85%, black);
   --interactive-accent-hsl: 32, 75%, 38%;
-  --interactive-accent-rgb: var(--hearth-accent-rgb);
-  --color-accent: rgb(var(--hearth-accent-rgb));
+  --interactive-accent-rgb: var(--umbria-accent-rgb);
+  --color-accent: rgb(var(--umbria-accent-rgb));
   --color-accent-hsl: 32, 75%, 38%;
-  --color-accent-1: color-mix(in srgb, rgb(var(--hearth-accent-rgb)) 88%, black);
-  --color-accent-2: color-mix(in srgb, rgb(var(--hearth-accent-rgb)) 76%, black);
-  --text-accent: rgb(var(--hearth-accent-rgb));
-  --text-accent-hover: color-mix(in srgb, rgb(var(--hearth-accent-rgb)) 80%, black);
+  --color-accent-1: color-mix(in srgb, rgb(var(--umbria-accent-rgb)) 88%, black);
+  --color-accent-2: color-mix(in srgb, rgb(var(--umbria-accent-rgb)) 76%, black);
+  --text-accent: rgb(var(--umbria-accent-rgb));
+  --text-accent-hover: color-mix(in srgb, rgb(var(--umbria-accent-rgb)) 80%, black);
   --text-on-accent: #fffaf2;
   --text-on-accent-inverted: #fffaf2;
 
@@ -479,19 +479,19 @@ body.theme-light {
   --background-secondary-alt: #faf6ee;
   --background-modifier-border: #d6cab6;
   --background-modifier-border-hover: #c2b39c;
-  --background-modifier-border-focus: rgb(var(--hearth-accent-rgb));
-  --background-modifier-hover: rgba(var(--hearth-accent-rgb), 0.08);
-  --background-modifier-active-hover: rgba(var(--hearth-accent-rgb), 0.14);
+  --background-modifier-border-focus: rgb(var(--umbria-accent-rgb));
+  --background-modifier-hover: rgba(var(--umbria-accent-rgb), 0.08);
+  --background-modifier-active-hover: rgba(var(--umbria-accent-rgb), 0.14);
   --background-modifier-form-field: #fbf8f2;
-  --background-modifier-error: rgb(var(--hearth-rust-rgb));
-  --background-modifier-success: rgb(var(--hearth-moss-rgb));
+  --background-modifier-error: rgb(var(--umbria-rust-rgb));
+  --background-modifier-success: rgb(var(--umbria-moss-rgb));
   --interactive-normal: #fbf8f2;
   --interactive-hover: #f1eadf;
   --text-normal: #2f2821;
   --text-muted: #6f6255;
   --text-faint: #9c8f80;
-  --hearth-head: #1f1a15;
-  --hearth-card: #faf6ee;
+  --umbria-head: #1f1a15;
+  --umbria-card: #faf6ee;
   --code-background: #ece3d4;
   --titlebar-background: #e4d9c6;
   --titlebar-background-focused: #e4d9c6;
@@ -502,27 +502,27 @@ body.theme-light {
   --divider-color: #d6cab6;
   --shadow-s: 0 1px 2px rgba(90, 60, 30, 0.1);
   --shadow-l: 0 0 0 1px #d6cab6, 0 18px 44px rgba(90, 60, 30, 0.18);
-  --hearth-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 10px 26px -16px rgba(90, 60, 30, 0.4);
+  --umbria-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 10px 26px -16px rgba(90, 60, 30, 0.4);
 }
 
 /* --------------------------------------------------------------------------
-   HEADINGS: three styles (Style Settings → Hearth → Type & reading)
+   HEADINGS: three styles (Style Settings → Umbria → Type & reading)
    -------------------------------------------------------------------------- */
 
 /* Inscription (default): Cinzel with a little tracking */
 :is(.inline-title, .markdown-rendered h1, .markdown-rendered h2, .markdown-rendered h3,
     .HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3) {
-  letter-spacing: var(--hearth-head-tracking);
+  letter-spacing: var(--umbria-head-tracking);
   text-wrap: balance;
 }
 :is(.markdown-rendered h3, .HyperMD-header-3) {
-  letter-spacing: calc(var(--hearth-head-tracking) * 1.6);
+  letter-spacing: calc(var(--umbria-head-tracking) * 1.6);
 }
 
 /* Like the body text, bolder */
-body.hearth-h-text {
-  --hearth-head-font: var(--font-text);
-  --hearth-head-tracking: -0.01em;
+body.umbria-h-text {
+  --umbria-head-font: var(--font-text);
+  --umbria-head-tracking: -0.01em;
   --inline-title-weight: 700;
   --inline-title-size: 2em;
   --h1-weight: 700;
@@ -534,9 +534,9 @@ body.hearth-h-text {
 }
 
 /* Serif display: Literata at display size */
-body.hearth-h-display {
-  --hearth-head-font: var(--font-text);
-  --hearth-head-tracking: -0.015em;
+body.umbria-h-display {
+  --umbria-head-font: var(--font-text);
+  --umbria-head-tracking: -0.015em;
   --inline-title-weight: 600;
   --inline-title-size: 2.3em;
   --inline-title-line-height: 1.1;
@@ -548,10 +548,10 @@ body.hearth-h-display {
   --h3-size: 1.22em;
   --h3-style: italic;
 }
-body.hearth-h-display :is(.inline-title, .markdown-rendered :is(h1, h2, h3), .HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3) {
+body.umbria-h-display :is(.inline-title, .markdown-rendered :is(h1, h2, h3), .HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3) {
   font-variation-settings: "opsz" 72;
 }
-body.hearth-h-display :is(.markdown-rendered h3, .HyperMD-header-3) {
+body.umbria-h-display :is(.markdown-rendered h3, .HyperMD-header-3) {
   letter-spacing: 0;
 }
 
@@ -594,7 +594,7 @@ body {
   height: 6px;
   border-radius: 50%;
   margin-inline-end: 6px;
-  background: var(--hearth-accent);
+  background: var(--umbria-accent);
   align-self: center;
 }
 .view-header-title {
@@ -608,18 +608,18 @@ body {
 .nav-file-title,
 .nav-folder-title,
 .tree-item-self {
-  transition: background-color var(--hearth-ease), color var(--hearth-ease);
+  transition: background-color var(--umbria-ease), color var(--umbria-ease);
 }
 .nav-file-title.is-active,
 .tree-item-self.is-active {
-  color: var(--hearth-head);
-  background: rgba(var(--hearth-accent-rgb), 0.15);
+  color: var(--umbria-head);
+  background: rgba(var(--umbria-accent-rgb), 0.15);
 }
 .nav-folder-title {
   font-weight: 500;
 }
 .nav-folder-children {
-  --nav-indentation-guide-color: rgba(var(--hearth-accent-rgb), 0.14);
+  --nav-indentation-guide-color: rgba(var(--umbria-accent-rgb), 0.14);
 }
 .vertical-tab-header-group-title,
 .setting-item-heading .setting-item-name,
@@ -633,7 +633,7 @@ body {
 }
 .workspace-sidedock-vault-profile {
   font-size: 0.8em;
-  color: var(--hearth-head);
+  color: var(--umbria-head);
 }
 
 /* Properties */
@@ -675,7 +675,7 @@ input[type="text"]:focus,
 input[type="search"]:focus,
 textarea:focus,
 select:focus {
-  box-shadow: 0 0 0 2px rgba(var(--hearth-accent-rgb), 0.3);
+  box-shadow: 0 0 0 2px rgba(var(--umbria-accent-rgb), 0.3);
 }
 
 /* Slim scrollbars */
@@ -699,7 +699,7 @@ select:focus {
 .markdown-rendered a.external-link {
   text-decoration: none;
   background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
-  transition: background-size 250ms ease, color var(--hearth-ease);
+  transition: background-size 250ms ease, color var(--umbria-ease);
 }
 .markdown-rendered a.internal-link:hover,
 .markdown-rendered a.external-link:hover {
@@ -719,11 +719,11 @@ select:focus {
 .cm-s-obsidian span.cm-inline-code {
   font-size: 0.84em;
   padding: 0.1em 0.4em;
-  color: var(--hearth-rust);
+  color: var(--umbria-rust);
 }
 .markdown-rendered pre {
   border: 1px solid var(--background-modifier-border);
-  box-shadow: var(--hearth-shadow);
+  box-shadow: var(--umbria-shadow);
 }
 .markdown-rendered mark,
 .cm-s-obsidian span.cm-highlight {
@@ -744,44 +744,44 @@ select:focus {
    > [!quote] Seneca · On the Shortness of Life    ← the title becomes the source below
    -------------------------------------------------------------------------- */
 
-body:not(.hearth-zitat-schlicht) .markdown-rendered blockquote {
+body:not(.umbria-zitat-schlicht) .markdown-rendered blockquote {
   position: relative;
   margin: 1.8em 0;
   padding: 1.4em 1.6em 1.1em 1.9em;
   border: none;
   border-radius: var(--callout-radius);
-  background: var(--hearth-card);
-  box-shadow: var(--hearth-shadow);
+  background: var(--umbria-card);
+  box-shadow: var(--umbria-shadow);
   font-style: italic;
   font-size: 1.12em;
   line-height: 1.55;
-  color: var(--hearth-head);
+  color: var(--umbria-head);
   overflow: hidden;
   isolation: isolate;
 }
-body:not(.hearth-zitat-schlicht) .markdown-rendered blockquote::before {
+body:not(.umbria-zitat-schlicht) .markdown-rendered blockquote::before {
   content: "\201E";
   position: absolute;
   left: 0.32em;
   top: -0.62em;
   font: italic 600 4.2em/1 var(--font-text);
-  color: var(--hearth-accent);
+  color: var(--umbria-accent);
   opacity: 0.32;
   pointer-events: none;
   z-index: -1;
 }
-body:not(.hearth-zitat-schlicht) .markdown-rendered blockquote > p:last-child {
+body:not(.umbria-zitat-schlicht) .markdown-rendered blockquote > p:last-child {
   margin-bottom: 0;
 }
-body:not(.hearth-zitat-schlicht) .markdown-rendered blockquote blockquote {
+body:not(.umbria-zitat-schlicht) .markdown-rendered blockquote blockquote {
   font-size: 0.92em;
   box-shadow: none;
   background: var(--background-primary);
 }
 
 /* Plain variant */
-body.hearth-zitat-schlicht .markdown-rendered blockquote {
-  border-left: 2px solid rgba(var(--hearth-accent-rgb), 0.5);
+body.umbria-zitat-schlicht .markdown-rendered blockquote {
+  border-left: 2px solid rgba(var(--umbria-accent-rgb), 0.5);
   padding-left: 1.1em;
   font-style: italic;
   color: var(--text-muted);
@@ -790,44 +790,44 @@ body.hearth-zitat-schlicht .markdown-rendered blockquote {
 /* Editing (Live Preview): a quiet hint */
 .markdown-source-view.mod-cm6 .HyperMD-quote {
   font-style: italic;
-  color: var(--hearth-head);
+  color: var(--umbria-head);
 }
 .markdown-source-view.mod-cm6 .HyperMD-quote::before {
-  border-color: rgba(var(--hearth-accent-rgb), 0.45);
+  border-color: rgba(var(--umbria-accent-rgb), 0.45);
 }
 
 /* Quote callout: large text, title as the source underneath */
-body:not(.hearth-zitat-schlicht) .callout:is([data-callout="quote"], [data-callout="cite"], [data-callout="zitat"]) {
+body:not(.umbria-zitat-schlicht) .callout:is([data-callout="quote"], [data-callout="cite"], [data-callout="zitat"]) {
   position: relative;
   display: flex;
   flex-direction: column-reverse;
   padding: 1.5em 1.7em 1.1em 1.9em;
-  background: var(--hearth-card);
+  background: var(--umbria-card);
   border: none;
   overflow: hidden;
   isolation: isolate;
 }
-body:not(.hearth-zitat-schlicht) .callout:is([data-callout="quote"], [data-callout="cite"], [data-callout="zitat"])::before {
+body:not(.umbria-zitat-schlicht) .callout:is([data-callout="quote"], [data-callout="cite"], [data-callout="zitat"])::before {
   content: "\201E";
   position: absolute;
   left: 0.3em;
   top: -0.5em;
   font: italic 600 5.2em/1 var(--font-text);
-  color: var(--hearth-accent);
+  color: var(--umbria-accent);
   opacity: 0.32;
   pointer-events: none;
   z-index: -1;
 }
-body:not(.hearth-zitat-schlicht) .callout:is([data-callout="quote"], [data-callout="cite"], [data-callout="zitat"]) > .callout-content {
+body:not(.umbria-zitat-schlicht) .callout:is([data-callout="quote"], [data-callout="cite"], [data-callout="zitat"]) > .callout-content {
   font-style: italic;
   font-size: 1.2em;
   line-height: 1.5;
-  color: var(--hearth-head);
+  color: var(--umbria-head);
 }
-body:not(.hearth-zitat-schlicht) .callout:is([data-callout="quote"], [data-callout="cite"], [data-callout="zitat"]) > .callout-content > p:last-child {
+body:not(.umbria-zitat-schlicht) .callout:is([data-callout="quote"], [data-callout="cite"], [data-callout="zitat"]) > .callout-content > p:last-child {
   margin-bottom: 0;
 }
-body:not(.hearth-zitat-schlicht) .callout:is([data-callout="quote"], [data-callout="cite"], [data-callout="zitat"]) > .callout-title {
+body:not(.umbria-zitat-schlicht) .callout:is([data-callout="quote"], [data-callout="cite"], [data-callout="zitat"]) > .callout-title {
   margin-top: 0.9em;
   font-family: var(--font-interface);
   font-size: 0.72em;
@@ -835,14 +835,14 @@ body:not(.hearth-zitat-schlicht) .callout:is([data-callout="quote"], [data-callo
   text-transform: uppercase;
   color: var(--text-muted);
 }
-body:not(.hearth-zitat-schlicht) .callout:is([data-callout="quote"], [data-callout="cite"], [data-callout="zitat"]) > .callout-title .callout-icon {
+body:not(.umbria-zitat-schlicht) .callout:is([data-callout="quote"], [data-callout="cite"], [data-callout="zitat"]) > .callout-title .callout-icon {
   display: none;
 }
-body:not(.hearth-zitat-schlicht) .callout:is([data-callout="quote"], [data-callout="cite"], [data-callout="zitat"]) > .callout-title .callout-title-inner {
+body:not(.umbria-zitat-schlicht) .callout:is([data-callout="quote"], [data-callout="cite"], [data-callout="zitat"]) > .callout-title .callout-title-inner {
   font-weight: 600;
 }
 .callout[data-callout="zitat"] {
-  --callout-color: var(--hearth-accent-rgb);
+  --callout-color: var(--umbria-accent-rgb);
   --callout-icon: lucide-quote;
 }
 
@@ -852,9 +852,9 @@ body:not(.hearth-zitat-schlicht) .callout:is([data-callout="quote"], [data-callo
 
 .callout {
   border: 1px solid rgba(var(--callout-color), 0.16);
-  --hearth-callout-bg: color-mix(in srgb, rgb(var(--callout-color)) 9%, var(--background-primary));
-  background-color: var(--hearth-callout-bg);
-  box-shadow: var(--hearth-shadow);
+  --umbria-callout-bg: color-mix(in srgb, rgb(var(--callout-color)) 9%, var(--background-primary));
+  background-color: var(--umbria-callout-bg);
+  box-shadow: var(--umbria-shadow);
   mix-blend-mode: normal;
 }
 .callout-title {
@@ -871,46 +871,46 @@ body:not(.hearth-zitat-schlicht) .callout:is([data-callout="quote"], [data-callo
 
 /* Custom callouts for everyday notes (English and German names) */
 .callout:is([data-callout="stoa"], [data-callout="stoic"]) {
-  --callout-color: var(--hearth-accent-rgb);
+  --callout-color: var(--umbria-accent-rgb);
   --callout-icon: lucide-landmark;
 }
 .callout:is([data-callout="reflexion"], [data-callout="reflection"]) {
-  --callout-color: var(--hearth-slate-rgb);
+  --callout-color: var(--umbria-slate-rgb);
   --callout-icon: lucide-moon;
 }
 .callout:is([data-callout="praxis"], [data-callout="practice"]) {
-  --callout-color: var(--hearth-moss-rgb);
+  --callout-color: var(--umbria-moss-rgb);
   --callout-icon: lucide-sprout;
 }
 .callout:is([data-callout="gedanke"], [data-callout="thought"]) {
-  --callout-color: var(--hearth-plum-rgb);
+  --callout-color: var(--umbria-plum-rgb);
   --callout-icon: lucide-lightbulb;
 }
 .callout:is([data-callout="dankbar"], [data-callout="gratitude"]) {
-  --callout-color: var(--hearth-honey-rgb);
+  --callout-color: var(--umbria-honey-rgb);
   --callout-icon: lucide-flame;
 }
 
 /* Stoic: contour lines in the background on the right */
-body:not(.hearth-topo-aus) .callout:is([data-callout="stoa"], [data-callout="stoic"]) {
+body:not(.umbria-topo-aus) .callout:is([data-callout="stoa"], [data-callout="stoic"]) {
   position: relative;
   isolation: isolate;
   overflow: hidden;
 }
-body:not(.hearth-topo-aus) .callout:is([data-callout="stoa"], [data-callout="stoic"])::before,
-body:not(.hearth-topo-aus) .callout:is([data-callout="stoa"], [data-callout="stoic"])::after {
+body:not(.umbria-topo-aus) .callout:is([data-callout="stoa"], [data-callout="stoic"])::before,
+body:not(.umbria-topo-aus) .callout:is([data-callout="stoa"], [data-callout="stoic"])::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
   pointer-events: none;
 }
-body:not(.hearth-topo-aus) .callout:is([data-callout="stoa"], [data-callout="stoic"])::before {
-  background: var(--hearth-topo-img) right center / 760px auto no-repeat;
-  opacity: calc(var(--hearth-topo-staerke) * 1.6);
+body:not(.umbria-topo-aus) .callout:is([data-callout="stoa"], [data-callout="stoic"])::before {
+  background: var(--umbria-topo-img) right center / 760px auto no-repeat;
+  opacity: calc(var(--umbria-topo-staerke) * 1.6);
 }
-body:not(.hearth-topo-aus) .callout:is([data-callout="stoa"], [data-callout="stoic"])::after {
-  background: linear-gradient(90deg, var(--hearth-callout-bg) 35%, transparent 85%);
+body:not(.umbria-topo-aus) .callout:is([data-callout="stoa"], [data-callout="stoic"])::after {
+  background: linear-gradient(90deg, var(--umbria-callout-bg) 35%, transparent 85%);
 }
 
 /* --------------------------------------------------------------------------
@@ -918,14 +918,14 @@ body:not(.hearth-topo-aus) .callout:is([data-callout="stoa"], [data-callout="sto
    -------------------------------------------------------------------------- */
 
 body {
-  --hearth-orn: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 18' fill='none' stroke='black' stroke-width='1.3'%3E%3Cpath d='M15 2c7 0 13 3 13 7s-6 7-13 7S2 13 2 9s6-7 13-7z'/%3E%3Cpath d='M15 5.2c4.4 0 8 1.7 8 3.8s-3.6 3.8-8 3.8-8-1.7-8-3.8 3.6-3.8 8-3.8z'/%3E%3Cpath d='M15 8c1.7 0 3 .45 3 1s-1.3 1-3 1-3-.45-3-1 1.3-1 3-1z'/%3E%3C/svg%3E");
-  --hearth-orn-w: 30px;
+  --umbria-orn: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 18' fill='none' stroke='black' stroke-width='1.3'%3E%3Cpath d='M15 2c7 0 13 3 13 7s-6 7-13 7S2 13 2 9s6-7 13-7z'/%3E%3Cpath d='M15 5.2c4.4 0 8 1.7 8 3.8s-3.6 3.8-8 3.8-8-1.7-8-3.8 3.6-3.8 8-3.8z'/%3E%3Cpath d='M15 8c1.7 0 3 .45 3 1s-1.3 1-3 1-3-.45-3-1 1.3-1 3-1z'/%3E%3C/svg%3E");
+  --umbria-orn-w: 30px;
 }
-body.hearth-orn-sanduhr {
-  --hearth-orn: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-7 0 30 22' fill='none' stroke='black' stroke-width='1.3'%3E%3Cpath d='M2 1h12M2 21h12M3 1c0 6 10 7 10 10S3 15 3 21M13 1c0 6-10 7-10 10s10 4 10 10'/%3E%3Cpath d='M6 19h4l-2-2.4z' fill='black'/%3E%3C/svg%3E");
+body.umbria-orn-sanduhr {
+  --umbria-orn: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-7 0 30 22' fill='none' stroke='black' stroke-width='1.3'%3E%3Cpath d='M2 1h12M2 21h12M3 1c0 6 10 7 10 10S3 15 3 21M13 1c0 6-10 7-10 10s10 4 10 10'/%3E%3Cpath d='M6 19h4l-2-2.4z' fill='black'/%3E%3C/svg%3E");
 }
-body.hearth-orn-welle {
-  --hearth-orn: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 16' fill='none' stroke='black' stroke-width='1.3'%3E%3Cpath d='M2 16a12 12 0 0 1 24 0M6 16a8 8 0 0 1 16 0M10 16a4 4 0 0 1 8 0'/%3E%3C/svg%3E");
+body.umbria-orn-welle {
+  --umbria-orn: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 16' fill='none' stroke='black' stroke-width='1.3'%3E%3Cpath d='M2 16a12 12 0 0 1 24 0M6 16a8 8 0 0 1 16 0M10 16a4 4 0 0 1 8 0'/%3E%3C/svg%3E");
 }
 
 .markdown-rendered hr {
@@ -935,27 +935,27 @@ body.hearth-orn-welle {
   margin: 2.2em 0;
   border: none;
   background:
-    linear-gradient(90deg, transparent, var(--background-modifier-border-hover)) left center / calc(50% - var(--hearth-orn-w)) 1px no-repeat,
-    linear-gradient(90deg, var(--background-modifier-border-hover), transparent) right center / calc(50% - var(--hearth-orn-w)) 1px no-repeat;
+    linear-gradient(90deg, transparent, var(--background-modifier-border-hover)) left center / calc(50% - var(--umbria-orn-w)) 1px no-repeat,
+    linear-gradient(90deg, var(--background-modifier-border-hover), transparent) right center / calc(50% - var(--umbria-orn-w)) 1px no-repeat;
 }
 .markdown-rendered hr::after {
   content: "";
   position: absolute;
   left: 50%;
   top: 50%;
-  width: var(--hearth-orn-w);
+  width: var(--umbria-orn-w);
   height: 20px;
   transform: translate(-50%, -50%);
-  background: var(--hearth-accent);
+  background: var(--umbria-accent);
   opacity: 0.75;
-  -webkit-mask: var(--hearth-orn) center / contain no-repeat;
-  mask: var(--hearth-orn) center / contain no-repeat;
+  -webkit-mask: var(--umbria-orn) center / contain no-repeat;
+  mask: var(--umbria-orn) center / contain no-repeat;
 }
-body.hearth-orn-keins .markdown-rendered hr {
+body.umbria-orn-keins .markdown-rendered hr {
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--background-modifier-border-hover), transparent);
 }
-body.hearth-orn-keins .markdown-rendered hr::after {
+body.umbria-orn-keins .markdown-rendered hr::after {
   display: none;
 }
 
@@ -964,52 +964,52 @@ body.hearth-orn-keins .markdown-rendered hr::after {
    Fixed in the pane, bottom right, fading out towards the text.
    -------------------------------------------------------------------------- */
 
-body:not(.hearth-topo-aus) .workspace-leaf-content[data-type="markdown"] > .view-content {
+body:not(.umbria-topo-aus) .workspace-leaf-content[data-type="markdown"] > .view-content {
   position: relative;
   isolation: isolate;
   background-color: var(--background-primary);
 }
-body:not(.hearth-topo-aus) .workspace-leaf-content[data-type="markdown"] > .view-content > :is(.markdown-source-view, .markdown-reading-view),
-body:not(.hearth-topo-aus) .workspace-leaf-content[data-type="markdown"] :is(.markdown-preview-view, .cm-scroller, .cm-editor) {
+body:not(.umbria-topo-aus) .workspace-leaf-content[data-type="markdown"] > .view-content > :is(.markdown-source-view, .markdown-reading-view),
+body:not(.umbria-topo-aus) .workspace-leaf-content[data-type="markdown"] :is(.markdown-preview-view, .cm-scroller, .cm-editor) {
   background-color: transparent;
 }
 /* Lines as a plain background image (drawn at full Retina/5K resolution,
    unlike mask-image in Electron). Fade: a gradient in the background colour on top. */
-body:not(.hearth-topo-aus) .workspace-leaf-content[data-type="markdown"] > .view-content::before,
-body:not(.hearth-topo-aus) .workspace-leaf-content[data-type="markdown"] > .view-content::after {
+body:not(.umbria-topo-aus) .workspace-leaf-content[data-type="markdown"] > .view-content::before,
+body:not(.umbria-topo-aus) .workspace-leaf-content[data-type="markdown"] > .view-content::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
   pointer-events: none;
 }
-body:not(.hearth-topo-aus) .workspace-leaf-content[data-type="markdown"] > .view-content::before {
-  background: var(--hearth-topo-img) right bottom / 1920px auto no-repeat;
-  opacity: var(--hearth-topo-staerke);
+body:not(.umbria-topo-aus) .workspace-leaf-content[data-type="markdown"] > .view-content::before {
+  background: var(--umbria-topo-img) right bottom / 1920px auto no-repeat;
+  opacity: var(--umbria-topo-staerke);
 }
-body:not(.hearth-topo-aus) .workspace-leaf-content[data-type="markdown"] > .view-content::after {
+body:not(.umbria-topo-aus) .workspace-leaf-content[data-type="markdown"] > .view-content::after {
   /* Image 1920 × 1280 px, fade 1840 × 1220 px: always fully opaque before the image edge */
   background: radial-gradient(1840px 1220px at 100% 100%, transparent 22%, color-mix(in srgb, var(--background-primary) 40%, transparent) 58%, var(--background-primary) 100%);
 }
 
 /* Empty tabs: the whole landscape, very quiet */
-body:not(.hearth-topo-aus) .empty-state {
+body:not(.umbria-topo-aus) .empty-state {
   position: relative;
   isolation: isolate;
 }
-body:not(.hearth-topo-aus) .empty-state::before,
-body:not(.hearth-topo-aus) .empty-state::after {
+body:not(.umbria-topo-aus) .empty-state::before,
+body:not(.umbria-topo-aus) .empty-state::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
   pointer-events: none;
 }
-body:not(.hearth-topo-aus) .empty-state::before {
-  background: var(--hearth-topo-img) center / 1200px auto no-repeat;
-  opacity: calc(var(--hearth-topo-staerke) * 0.9);
+body:not(.umbria-topo-aus) .empty-state::before {
+  background: var(--umbria-topo-img) center / 1200px auto no-repeat;
+  opacity: calc(var(--umbria-topo-staerke) * 0.9);
 }
-body:not(.hearth-topo-aus) .empty-state::after {
+body:not(.umbria-topo-aus) .empty-state::after {
   background: radial-gradient(closest-side, transparent 30%, var(--background-primary));
 }
 
@@ -1017,12 +1017,12 @@ body:not(.hearth-topo-aus) .empty-state::after {
    MEMENTO MORI (status bar, optional)
    -------------------------------------------------------------------------- */
 
-body.hearth-memento .status-bar::before {
+body.umbria-memento .status-bar::before {
   content: "Memento mori";
   order: -1;
   margin-right: auto;
   padding: 0 10px 0 4px;
-  font-family: var(--hearth-inschrift);
+  font-family: var(--umbria-inschrift);
   font-size: 0.92em;
   letter-spacing: 0.22em;
   color: var(--text-muted);
@@ -1035,16 +1035,16 @@ body.hearth-memento .status-bar::before {
 
 .tag,
 .cm-s-obsidian span.cm-hashtag {
-  --tag-color: var(--hearth-moss);
-  --tag-color-hover: var(--hearth-moss);
-  --tag-background: rgba(var(--hearth-moss-rgb), 0.14);
-  --tag-background-hover: rgba(var(--hearth-moss-rgb), 0.24);
+  --tag-color: var(--umbria-moss);
+  --tag-color-hover: var(--umbria-moss);
+  --tag-background: rgba(var(--umbria-moss-rgb), 0.14);
+  --tag-background-hover: rgba(var(--umbria-moss-rgb), 0.24);
   --tag-border-width: 0;
   font-family: var(--font-interface);
   font-size: 0.78em;
   font-weight: 500;
   padding: 0.1em 0.7em 0.15em;
-  transition: background-color var(--hearth-ease);
+  transition: background-color var(--umbria-ease);
 }
 .cm-s-obsidian span.cm-hashtag-begin {
   padding-right: 0;
@@ -1058,23 +1058,23 @@ body.hearth-memento .status-bar::before {
    -------------------------------------------------------------------------- */
 
 input[type="checkbox"] {
-  transition: border-color var(--hearth-ease), box-shadow var(--hearth-ease), background-color var(--hearth-ease);
+  transition: border-color var(--umbria-ease), box-shadow var(--umbria-ease), background-color var(--umbria-ease);
 }
 .markdown-rendered input[type="checkbox"]:hover,
 .markdown-source-view input[type="checkbox"]:hover {
-  box-shadow: 0 0 0 3px rgba(var(--hearth-accent-rgb), 0.18);
+  box-shadow: 0 0 0 3px rgba(var(--umbria-accent-rgb), 0.18);
 }
 
 /* In progress [/] */
 :is(.task-list-item, .HyperMD-task-line)[data-task="/"] input[type="checkbox"] {
-  background: linear-gradient(90deg, var(--hearth-accent) 50%, transparent 50%);
-  border-color: var(--hearth-accent);
+  background: linear-gradient(90deg, var(--umbria-accent) 50%, transparent 50%);
+  border-color: var(--umbria-accent);
 }
 :is(.task-list-item, .HyperMD-task-line)[data-task="/"] input[type="checkbox"]::after { display: none; }
 /* Important [!] */
 :is(.task-list-item, .HyperMD-task-line)[data-task="!"] input[type="checkbox"] {
-  background: var(--hearth-rust);
-  border-color: var(--hearth-rust);
+  background: var(--umbria-rust);
+  border-color: var(--umbria-rust);
 }
 :is(.task-list-item, .HyperMD-task-line)[data-task="!"] input[type="checkbox"]::after {
   content: "!";
@@ -1101,8 +1101,8 @@ input[type="checkbox"] {
 }
 /* Deferred [>] */
 :is(.task-list-item, .HyperMD-task-line)[data-task=">"] input[type="checkbox"] {
-  border-color: var(--hearth-slate);
-  background: rgba(var(--hearth-slate-rgb), 0.25);
+  border-color: var(--umbria-slate);
+  background: rgba(var(--umbria-slate-rgb), 0.25);
 }
 :is(.task-list-item, .HyperMD-task-line)[data-task=">"] input[type="checkbox"]::after { display: none; }
 
@@ -1118,17 +1118,17 @@ input[type="checkbox"] {
   margin-inline-start: 0.35em;
 }
 .task-list-item[data-task-due="today"] .task-due {
-  background: rgba(var(--hearth-accent-rgb), 0.16);
-  color: var(--hearth-accent);
+  background: rgba(var(--umbria-accent-rgb), 0.16);
+  color: var(--umbria-accent);
   font-weight: 600;
 }
 .task-list-item[data-task-due^="past"]:not(.is-checked) .task-due {
-  background: rgba(var(--hearth-rust-rgb), 0.16);
-  color: var(--hearth-rust);
+  background: rgba(var(--umbria-rust-rgb), 0.16);
+  color: var(--umbria-rust);
   font-weight: 600;
 }
 .task-list-item .task-done {
-  color: var(--hearth-moss);
+  color: var(--umbria-moss);
 }
 .tasks-group-heading {
   font-family: var(--font-interface);
@@ -1160,7 +1160,7 @@ table.dataview th {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-muted);
-  background: var(--hearth-card);
+  background: var(--umbria-card);
   border: none;
   border-bottom: 1px solid var(--background-modifier-border);
   text-align: left;
@@ -1180,14 +1180,14 @@ table.dataview tbody tr {
 }
 .markdown-rendered tbody tr:hover,
 table.dataview tbody tr:hover {
-  background: rgba(var(--hearth-accent-rgb), 0.06);
+  background: rgba(var(--umbria-accent-rgb), 0.06);
 }
 .dataview.inline-field-key {
   font-family: var(--font-interface);
   font-size: 0.78em;
   font-weight: 600;
   color: var(--text-muted);
-  background: var(--hearth-card);
+  background: var(--umbria-card);
   border-radius: 999px 0 0 999px;
   padding-left: 0.7em;
 }
@@ -1200,7 +1200,7 @@ table.dataview tbody tr:hover {
   padding-right: 0.7em;
 }
 .dataview-error {
-  color: var(--hearth-rust);
+  color: var(--umbria-rust);
 }
 
 /* --------------------------------------------------------------------------
@@ -1209,43 +1209,43 @@ table.dataview tbody tr:hover {
 
 /* Notebook Navigator */
 body {
-  --nn-theme-navitem-selected-bg: rgba(var(--hearth-accent-rgb), 0.16);
-  --nn-theme-navitem-hover-bg: rgba(var(--hearth-accent-rgb), 0.08);
-  --nn-theme-navitem-selected-icon-color: var(--hearth-accent);
-  --nn-theme-file-selected-bg: rgba(var(--hearth-accent-rgb), 0.14);
+  --nn-theme-navitem-selected-bg: rgba(var(--umbria-accent-rgb), 0.16);
+  --nn-theme-navitem-hover-bg: rgba(var(--umbria-accent-rgb), 0.08);
+  --nn-theme-navitem-selected-icon-color: var(--umbria-accent);
+  --nn-theme-file-selected-bg: rgba(var(--umbria-accent-rgb), 0.14);
   --nn-theme-file-selected-inactive-bg: var(--background-modifier-hover);
-  --nn-theme-file-tag-bg: rgba(var(--hearth-moss-rgb), 0.14);
-  --nn-theme-file-tag-color: var(--hearth-moss);
+  --nn-theme-file-tag-bg: rgba(var(--umbria-moss-rgb), 0.14);
+  --nn-theme-file-tag-color: var(--umbria-moss);
   --nn-theme-file-tag-border-radius: 999px;
   --nn-theme-file-date-color: var(--text-faint);
-  --nn-theme-calendar-day-today-bg: var(--hearth-accent);
+  --nn-theme-calendar-day-today-bg: var(--umbria-accent);
   --nn-theme-calendar-day-today-color: var(--text-on-accent);
-  --nn-theme-calendar-note-indicator-color: var(--hearth-accent);
-  --nn-theme-calendar-unfinished-task-indicator-color: var(--hearth-rust);
+  --nn-theme-calendar-note-indicator-color: var(--umbria-accent);
+  --nn-theme-calendar-unfinished-task-indicator-color: var(--umbria-rust);
 }
 
 /* Calendar */
 #calendar-container {
-  --color-dot: var(--hearth-accent);
-  --color-text-today: var(--hearth-accent);
-  --color-text-title: var(--hearth-head);
+  --color-dot: var(--umbria-accent);
+  --color-text-today: var(--umbria-accent);
+  --color-text-title: var(--umbria-head);
   --color-arrow: var(--text-muted);
 }
 #calendar-container .title {
-  font-family: var(--hearth-head-font);
-  letter-spacing: var(--hearth-head-tracking);
+  font-family: var(--umbria-head-font);
+  letter-spacing: var(--umbria-head-tracking);
 }
 
 /* Day Planner */
 .workspace-leaf-content[data-type^="planner"] .needle {
-  background-color: var(--hearth-accent);
+  background-color: var(--umbria-accent);
 }
 .workspace-leaf-content[data-type^="planner"] .today {
   color: var(--text-accent);
   font-weight: 700;
 }
 .planner-progress-value {
-  background: var(--hearth-accent);
+  background: var(--umbria-accent);
 }
 
 /* Excalidraw */
@@ -1253,10 +1253,10 @@ body {
   --color-primary: var(--interactive-accent);
   --color-primary-darker: var(--interactive-accent-hover);
   --color-primary-darkest: var(--interactive-accent-hover);
-  --color-primary-light: rgba(var(--hearth-accent-rgb), 0.18);
+  --color-primary-light: rgba(var(--umbria-accent-rgb), 0.18);
 }
 .excalidraw.theme--dark {
-  --island-bg-color: var(--hearth-card);
+  --island-bg-color: var(--umbria-card);
   --default-bg-color: var(--background-primary);
 }
 
@@ -1267,15 +1267,15 @@ body {
 }
 
 progress::-webkit-progress-value {
-  background: var(--hearth-moss);
+  background: var(--umbria-moss);
 }
 
 /* --------------------------------------------------------------------------
    CALM: no motion
    -------------------------------------------------------------------------- */
 
-body.hearth-still,
-body.hearth-still * {
+body.umbria-still,
+body.umbria-still * {
   transition: none !important;
 }
 @media (prefers-reduced-motion: reduce) {

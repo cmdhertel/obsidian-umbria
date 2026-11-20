@@ -1,11 +1,11 @@
-# Hearth
+# Umbria
 
-*A cabin in the evening: dark wood, an amber lamp, rain on the window.*
+*Umbrian hills at dusk: carved letters, quiet contour lines, the warmth of espresso.*
 
-Hearth is a warm, calm Obsidian theme for everyday notes, journaling and reading.
+Umbria is a warm, calm Obsidian theme for everyday notes, journaling and reading.
 Dark mode is the heart of it; light mode is soft linen.
 
-![Hearth](screenshot.png)
+![Umbria](screenshot.png)
 
 ## Features
 
@@ -46,12 +46,12 @@ and their strength, the divider ornament, memento mori and animations.
 
 ## Good to know
 
-- **Fonts:** if you have set your own text or interface font under *Settings → Appearance*, it overrides Hearth's fonts. Clear those fields to see Literata and Inter.
+- **Fonts:** if you have set your own text or interface font under *Settings → Appearance*, it overrides Umbria's fonts. Clear those fields to see Literata and Inter.
 - **Contour line colour:** the lines are a background image so they stay crisp at high resolution. That means they keep their amber colour even if you change the accent colour.
 
 ## Installation
 
-- **Manually:** download `theme.css` and `manifest.json` into `<vault>/.obsidian/themes/Hearth/`, then pick *Hearth* under *Settings → Appearance → Themes*.
+- **Manually:** download `theme.css` and `manifest.json` into `<vault>/.obsidian/themes/Umbria/`, then pick *Umbria* under *Settings → Appearance → Themes*.
 - **Community themes:** coming soon.
 
 ## Building from source
@@ -73,9 +73,9 @@ Theme: [MIT](LICENSE). Fonts: Inter, Literata and Cinzel under the SIL Open Font
 
 ## Deutsch
 
-*Eine Hütte am Abend: dunkles Holz, eine Bernsteinlampe, Regen am Fenster.*
+*Umbrische Hügel in der Dämmerung: gemeißelte Buchstaben, ruhige Höhenlinien, die Wärme von Espresso.*
 
-Hearth ist ein warmes, ruhiges Obsidian-Theme für Alltagsnotizen, Tagebuch und Lesen.
+Umbria ist ein warmes, ruhiges Obsidian-Theme für Alltagsnotizen, Tagebuch und Lesen.
 Der dunkle Modus ist das Herzstück, der helle Modus ist weiches Leinen.
 
 **Was es bietet:**
@@ -93,4 +93,4 @@ Der dunkle Modus ist das Herzstück, der helle Modus ist weiches Leinen.
 - Eigene Schriften unter *Einstellungen → Darstellung* überschreiben die Theme-Schriften. Leere die Felder, um Literata und Inter zu sehen.
 - Die Höhenlinien behalten ihre Bernsteinfarbe, auch wenn du den Akzent änderst.
 
-**Installation:** Lege `theme.css` und `manifest.json` nach `<Vault>/.obsidian/themes/Hearth/` und wähle *Hearth* unter *Einstellungen → Darstellung → Themes*.
+**Installation:** Lege `theme.css` und `manifest.json` nach `<Vault>/.obsidian/themes/Umbria/` und wähle *Umbria* unter *Einstellungen → Darstellung → Themes*.

@@ -1,6 +1,6 @@
 # Font licences
 
-Hearth embeds the following fonts in `theme.css` (Latin subset, WOFF2).
+Umbria embeds the following fonts in `theme.css` (Latin subset, WOFF2).
 All three are licensed under the **SIL Open Font License, Version 1.1**
 (full text: https://openfontlicense.org/open-font-license-official-text/).
 

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Build theme.css for Hearth: embed fonts, generate the contour-line SVG, fill in the source.
+"""Build theme.css for Umbria: embed fonts, generate the contour-line SVG, fill in the source.
 
 Usage:  python3 build.py                 -> writes ./theme.css
-        python3 build.py --install VAULT -> also copies theme.css + manifest.json into VAULT/.obsidian/themes/Hearth
+        python3 build.py --install VAULT -> also copies theme.css + manifest.json into VAULT/.obsidian/themes/Umbria
 """
 import base64, math, random, shutil, sys, pathlib, urllib.parse
 
@@ -140,7 +140,7 @@ def main():
     OUT.write_text(css)
     print(f"{OUT}: {len(css)/1024:.0f} KB (contour lines {len(topo)/1024:.0f} KB)")
     if "--install" in sys.argv:
-        dest = pathlib.Path(sys.argv[sys.argv.index("--install") + 1]).expanduser() / ".obsidian" / "themes" / "Hearth"
+        dest = pathlib.Path(sys.argv[sys.argv.index("--install") + 1]).expanduser() / ".obsidian" / "themes" / "Umbria"
         dest.mkdir(parents=True, exist_ok=True)
         shutil.copy(OUT, dest / "theme.css")
         shutil.copy(ROOT / "manifest.json", dest / "manifest.json")
