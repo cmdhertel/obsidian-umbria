@@ -68,29 +68,3 @@ The build embeds the fonts from `fonts/` and generates the contour-line SVG (Pyt
 ## Licence
 
 Theme: [MIT](LICENSE). Fonts: Inter, Literata and Cinzel under the SIL Open Font License 1.1, see [fonts/OFL.md](fonts/OFL.md).
-
----
-
-## Deutsch
-
-*Umbrische Hügel in der Dämmerung: gemeißelte Buchstaben, ruhige Höhenlinien, die Wärme von Espresso.*
-
-Umbria ist ein warmes, ruhiges Obsidian-Theme für Alltagsnotizen, Tagebuch und Lesen.
-Der dunkle Modus ist das Herzstück, der helle Modus ist weiches Leinen.
-
-**Was es bietet:**
-- Ein Bernstein-Akzent und Erdtöne (Moos, Rost, Schiefer, Pflaume, Honig). Alle Überschriften haben dieselbe Farbe.
-- Drei Holztöne für den dunklen Modus: Glut (Espresso), Kiefer (Waldgrün) und Herbst (rötlich).
-- Höhenlinien hinter dem Editor, in leeren Tabs und im Stoa-Callout. Sie bleiben auch auf 5K-Bildschirmen scharf.
-- Zitate als Mittelpunkt. Der Callout-Titel wird zur Quelle darunter.
-- Literata, Inter und Cinzel sind eingebettet. Es wird nichts aus dem Internet geladen.
-- Eigene Callouts mit deutschen Namen: `[!zitat]`, `[!stoa]`, `[!reflexion]`, `[!praxis]`, `[!gedanke]` und `[!dankbar]`. Die englischen Namen stehen in der Tabelle oben.
-- Aufgabenstatus `[/]`, `[!]`, `[-]` und `[>]`. Ornamente in Trennlinien. Optional *Memento mori* in der Statusleiste.
-
-**Einstellungen:** Mit dem Plugin *Style Settings* lassen sich Holzton, Farben, Überschriften, Schriften, Zeilenbreite und Höhenlinien einstellen. Die Einstellungen sind auf Englisch beschriftet.
-
-**Hinweise:**
-- Eigene Schriften unter *Einstellungen → Darstellung* überschreiben die Theme-Schriften. Leere die Felder, um Literata und Inter zu sehen.
-- Die Höhenlinien behalten ihre Bernsteinfarbe, auch wenn du den Akzent änderst.
-
-**Installation:** Lege `theme.css` und `manifest.json` nach `<Vault>/.obsidian/themes/Umbria/` und wähle *Umbria* unter *Einstellungen → Darstellung → Themes*.
