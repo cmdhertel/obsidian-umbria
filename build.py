@@ -147,10 +147,8 @@ def main():
         face("Cinzel", "normal", "400 900", "cinzel.woff2"),
     ])
     topo = topo_svg()
-    # Line colour = accent per mode (background images cannot read CSS variables)
-    css = (css.replace("/*@@FONTS@@*/", fonts)
-              .replace("@@TOPO_DARK@@", topo.replace("stroke='black'", "stroke='%23dfa456'"))
-              .replace("@@TOPO_LIGHT@@", topo.replace("stroke='black'", "stroke='%23a86418'")))
+    # One black SVG, used as a mask: the CSS paints it in the accent colour of each mode
+    css = css.replace("/*@@FONTS@@*/", fonts).replace("@@TOPO@@", topo)
     assert "@@" not in css, "placeholder left over"
     css = minify(css)
     OUT.write_text(css)

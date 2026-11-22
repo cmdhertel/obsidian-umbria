@@ -1,8 +1,8 @@
-/* Umbria 1.0.1 — Obsidian theme by Gian Luca Hertel (MIT). Fonts: Inter, Literata, Cinzel (all SIL Open Font License 1.1) */
+/* Umbria 1.1.0 — Obsidian theme by Gian Luca Hertel (MIT). Fonts: Inter, Literata, Cinzel (all SIL Open Font License 1.1) */
 /*@@FONTS@@*/
 
 /* ==========================================================================
-   UMBRIA 1.0.1 — an Obsidian theme for everyday notes
+   UMBRIA 1.1.0 — an Obsidian theme for everyday notes
    Umbrian hills at dusk: carved letters, quiet contour lines, the warmth of espresso.
    Disciplined (one accent, all headings the same colour),
    sheltering (a tucked-in sidebar, soft warm shadows),
@@ -15,32 +15,32 @@ name: Umbria
 id: umbria
 settings:
   -
-    id: umbria-h-farben
+    id: umbria-h-colours
     title: Colours
     type: heading
     level: 2
     collapsed: true
   -
-    id: umbria-holz
-    title: Wood (dark background)
-    description: Base tone for dark mode. Light mode stays linen.
+    id: umbria-wood
+    title: Wood (background)
+    description: Base tone for both modes. Each wood has a dark and a light paper.
     type: class-select
     allowEmpty: false
-    default: umbria-bg-glut
+    default: umbria-bg-ember
     options:
       -
-        label: Ember (espresso, default)
-        value: umbria-bg-glut
+        label: Ember (espresso / linen, default)
+        value: umbria-bg-ember
       -
-        label: Pine (forest green)
-        value: umbria-bg-kiefer
+        label: Pine (forest / sage)
+        value: umbria-bg-pine
       -
-        label: Autumn (deeper, reddish)
-        value: umbria-bg-herbst
+        label: Autumn (deep red-brown / clay)
+        value: umbria-bg-autumn
   -
     id: umbria-accent-rgb
     title: Accent (amber)
-    description: Links, active elements, ornaments. (The contour lines keep their amber.)
+    description: Links, active elements, ornaments and contour lines.
     type: variable-themed-color
     format: rgb-values
     opacity: false
@@ -74,21 +74,21 @@ settings:
     default-light: '#46657A'
     default-dark: '#8197A6'
   -
-    id: umbria-h-schrift
+    id: umbria-h-type
     title: Type & reading
     type: heading
     level: 2
     collapsed: true
   -
-    id: umbria-ueberschriften
+    id: umbria-headings
     title: Headings
     type: class-select
     allowEmpty: false
-    default: umbria-h-inschrift
+    default: umbria-h-inscription
     options:
       -
         label: Inscription (Cinzel, default)
-        value: umbria-h-inschrift
+        value: umbria-h-inscription
       -
         label: Like the body text, bolder
         value: umbria-h-text
@@ -108,7 +108,7 @@ settings:
     type: variable-text
     default: '"Inter"'
   -
-    id: umbria-zeile
+    id: umbria-line-width
     title: Line width
     description: Applies when "Readable line length" is on.
     type: variable-number-slider
@@ -118,25 +118,25 @@ settings:
     step: 20
     format: px
   -
-    id: umbria-zitat-schlicht
+    id: umbria-plain-quotes
     title: Plain quotes
     description: Quotes without the big stage, as a simple indented block.
     type: class-toggle
     default: false
   -
-    id: umbria-h-motiv
+    id: umbria-h-motif
     title: Motif
     type: heading
     level: 2
     collapsed: true
   -
-    id: umbria-topo-aus
+    id: umbria-topo-off
     title: Turn off contour lines
     description: Behind the editor, in empty tabs and in stoic callouts.
     type: class-toggle
     default: false
   -
-    id: umbria-topo-staerke
+    id: umbria-topo-strength
     title: Contour line strength
     type: variable-number-slider
     default: 0.3
@@ -144,7 +144,7 @@ settings:
     max: 0.8
     step: 0.02
   -
-    id: umbria-trenner
+    id: umbria-divider
     title: Divider ornament
     type: class-select
     allowEmpty: false
@@ -155,26 +155,26 @@ settings:
         value: umbria-orn-topo
       -
         label: Hourglass (memento mori)
-        value: umbria-orn-sanduhr
+        value: umbria-orn-hourglass
       -
         label: Wave
-        value: umbria-orn-welle
+        value: umbria-orn-wave
       -
         label: None
-        value: umbria-orn-keins
+        value: umbria-orn-none
   -
     id: umbria-memento
     title: Memento mori in the status bar
     type: class-toggle
     default: false
   -
-    id: umbria-h-ruhe
+    id: umbria-h-calm
     title: Calm
     type: heading
     level: 2
     collapsed: true
   -
-    id: umbria-still
+    id: umbria-no-motion
     title: No animations
     description: Turns off transitions and hover effects.
     type: class-toggle
@@ -186,15 +186,16 @@ settings:
    -------------------------------------------------------------------------- */
 
 body {
+  --umbria-topo-img: url("@@TOPO@@");
   --umbria-font-text: "Literata";
   --umbria-font-ui: "Inter";
-  --umbria-zeile: 720px;
-  --umbria-topo-staerke: 0.3;
+  --umbria-line-width: 720px;
+  --umbria-topo-strength: 0.3;
   --umbria-ease: 180ms ease;
 
   --font-text-theme: var(--umbria-font-text), "Iowan Old Style", Georgia, serif;
   --font-interface-theme: var(--umbria-font-ui), -apple-system, "Segoe UI", sans-serif;
-  --umbria-inschrift: "Cinzel", "Trajan Pro", Georgia, serif;
+  --umbria-inscription: "Cinzel", "Trajan Pro", Georgia, serif;
   --umbria-sans: var(--umbria-font-ui), -apple-system, "Segoe UI", sans-serif;
 
   --umbria-accent: rgb(var(--umbria-accent-rgb));
@@ -239,7 +240,7 @@ body {
   --tab-radius: 7px;
 
   /* Reading */
-  --file-line-width: var(--umbria-zeile);
+  --file-line-width: var(--umbria-line-width);
   --line-height-normal: 1.65;
   --p-spacing: 1.05rem;
   --list-marker-color: var(--umbria-accent);
@@ -290,7 +291,7 @@ body {
 
   /* Headings: all the same colour, differing only in size and weight.
      Default = inscription (Cinzel). */
-  --umbria-head-font: var(--umbria-inschrift);
+  --umbria-head-font: var(--umbria-inscription);
   --inline-title-font: var(--umbria-head-font);
   --inline-title-color: var(--umbria-head);
   --inline-title-weight: 600;
@@ -336,13 +337,13 @@ body {
 /* ---------- DARK: Ember (espresso) ---------- */
 body.theme-dark {
   color-scheme: dark;
-  --umbria-topo-img: url("@@TOPO_DARK@@");
   --umbria-accent-rgb: 223, 164, 86;
   --umbria-moss-rgb: 143, 156, 116;
   --umbria-rust-rgb: 196, 114, 78;
   --umbria-slate-rgb: 129, 151, 166;
   --umbria-honey-rgb: 226, 192, 112;
   --umbria-plum-rgb: 166, 140, 160;
+  --umbria-stone-rgb: 166, 152, 138;
   --umbria-shadow-rgb: 0, 0, 0;
 
   --accent-h: 34;
@@ -394,7 +395,7 @@ body.theme-dark {
 }
 
 /* Pine (forest green) */
-body.theme-dark.umbria-bg-kiefer {
+body.theme-dark.umbria-bg-pine {
   --background-primary: #1a1c17;
   --background-primary-alt: #171914;
   --background-secondary: #141612;
@@ -420,7 +421,7 @@ body.theme-dark.umbria-bg-kiefer {
 }
 
 /* Autumn (deeper, reddish) */
-body.theme-dark.umbria-bg-herbst {
+body.theme-dark.umbria-bg-autumn {
   --background-primary: #1e1612;
   --background-primary-alt: #1a130f;
   --background-secondary: #18110d;
@@ -448,13 +449,13 @@ body.theme-dark.umbria-bg-herbst {
 /* ---------- LIGHT: Linen ---------- */
 body.theme-light {
   color-scheme: light;
-  --umbria-topo-img: url("@@TOPO_LIGHT@@");
   --umbria-accent-rgb: 168, 100, 24;
   --umbria-moss-rgb: 94, 112, 69;
   --umbria-rust-rgb: 166, 75, 42;
   --umbria-slate-rgb: 70, 101, 122;
   --umbria-honey-rgb: 160, 120, 20;
   --umbria-plum-rgb: 118, 84, 110;
+  --umbria-stone-rgb: 111, 98, 85;
   --umbria-shadow-rgb: 90, 60, 30;
 
   --accent-h: 32;
@@ -501,8 +502,60 @@ body.theme-light {
   --status-bar-background: #e4d9c6;
   --divider-color: #d6cab6;
   --shadow-s: 0 1px 2px rgba(90, 60, 30, 0.1);
-  --shadow-l: 0 0 0 1px #d6cab6, 0 18px 44px rgba(90, 60, 30, 0.18);
+  --shadow-l: 0 0 0 1px var(--background-modifier-border), 0 18px 44px rgba(90, 60, 30, 0.18);
   --umbria-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 10px 26px -16px rgba(90, 60, 30, 0.4);
+}
+
+/* Light Pine (sage paper) */
+body.theme-light.umbria-bg-pine {
+  --background-primary: #eef0e6;
+  --background-primary-alt: #e8ebdf;
+  --background-secondary: #e1e5d6;
+  --background-secondary-alt: #f6f7f0;
+  --background-modifier-border: #cdd3bf;
+  --background-modifier-border-hover: #b5bea4;
+  --background-modifier-form-field: #f8f9f3;
+  --interactive-normal: #f8f9f3;
+  --interactive-hover: #e9ecdf;
+  --text-normal: #282c24;
+  --text-muted: #5f6655;
+  --text-faint: #8d9580;
+  --umbria-head: #1b1f17;
+  --umbria-card: #f6f7f0;
+  --code-background: #e3e7d8;
+  --titlebar-background: #dce1cf;
+  --titlebar-background-focused: #dce1cf;
+  --ribbon-background: #dce1cf;
+  --ribbon-background-collapsed: #dce1cf;
+  --tab-container-background: #dce1cf;
+  --status-bar-background: #dce1cf;
+  --divider-color: #cdd3bf;
+}
+
+/* Light Autumn (clay paper) */
+body.theme-light.umbria-bg-autumn {
+  --background-primary: #f6ebe1;
+  --background-primary-alt: #f1e3d7;
+  --background-secondary: #ecdccd;
+  --background-secondary-alt: #fbf4ee;
+  --background-modifier-border: #dcc5b3;
+  --background-modifier-border-hover: #c9ab95;
+  --background-modifier-form-field: #fcf7f2;
+  --interactive-normal: #fcf7f2;
+  --interactive-hover: #f3e5d9;
+  --text-normal: #33251d;
+  --text-muted: #76594a;
+  --text-faint: #a4887a;
+  --umbria-head: #24170f;
+  --umbria-card: #fbf4ee;
+  --code-background: #efdfd1;
+  --titlebar-background: #e9d5c4;
+  --titlebar-background-focused: #e9d5c4;
+  --ribbon-background: #e9d5c4;
+  --ribbon-background-collapsed: #e9d5c4;
+  --tab-container-background: #e9d5c4;
+  --status-bar-background: #e9d5c4;
+  --divider-color: #dcc5b3;
 }
 
 /* --------------------------------------------------------------------------
@@ -744,7 +797,7 @@ select:focus {
    > It is not that we have a short time to live …
    -------------------------------------------------------------------------- */
 
-body:not(.umbria-zitat-schlicht) .markdown-rendered blockquote {
+body:not(.umbria-plain-quotes) .markdown-rendered blockquote {
   position: relative;
   margin: 1.8em 0;
   padding: 1.4em 1.6em 1.1em 1.9em;
@@ -759,8 +812,8 @@ body:not(.umbria-zitat-schlicht) .markdown-rendered blockquote {
   overflow: hidden;
   isolation: isolate;
 }
-body:not(.umbria-zitat-schlicht) .markdown-rendered blockquote::before {
-  content: "\201E";
+body:not(.umbria-plain-quotes) .markdown-rendered blockquote::before {
+  content: "\201C";
   position: absolute;
   left: 0.32em;
   top: -0.62em;
@@ -770,17 +823,17 @@ body:not(.umbria-zitat-schlicht) .markdown-rendered blockquote::before {
   pointer-events: none;
   z-index: -1;
 }
-body:not(.umbria-zitat-schlicht) .markdown-rendered blockquote > p:last-child {
+body:not(.umbria-plain-quotes) .markdown-rendered blockquote > p:last-child {
   margin-bottom: 0;
 }
-body:not(.umbria-zitat-schlicht) .markdown-rendered blockquote blockquote {
+body:not(.umbria-plain-quotes) .markdown-rendered blockquote blockquote {
   font-size: 0.92em;
   box-shadow: none;
   background: var(--background-primary);
 }
 
 /* Plain variant */
-body.umbria-zitat-schlicht .markdown-rendered blockquote {
+body.umbria-plain-quotes .markdown-rendered blockquote {
   border-left: 2px solid rgba(var(--umbria-accent-rgb), 0.5);
   padding-left: 1.1em;
   font-style: italic;
@@ -797,7 +850,7 @@ body.umbria-zitat-schlicht .markdown-rendered blockquote {
 }
 
 /* Quote callout: large text, title as the source underneath */
-body:not(.umbria-zitat-schlicht) .callout:is([data-callout="quote"], [data-callout="cite"], [data-callout="zitat"]) {
+body:not(.umbria-plain-quotes) .callout:is([data-callout="quote"], [data-callout="cite"]) {
   position: relative;
   display: flex;
   flex-direction: column-reverse;
@@ -807,8 +860,8 @@ body:not(.umbria-zitat-schlicht) .callout:is([data-callout="quote"], [data-callo
   overflow: hidden;
   isolation: isolate;
 }
-body:not(.umbria-zitat-schlicht) .callout:is([data-callout="quote"], [data-callout="cite"], [data-callout="zitat"])::before {
-  content: "\201E";
+body:not(.umbria-plain-quotes) .callout:is([data-callout="quote"], [data-callout="cite"])::before {
+  content: "\201C";
   position: absolute;
   left: 0.3em;
   top: -0.5em;
@@ -818,16 +871,16 @@ body:not(.umbria-zitat-schlicht) .callout:is([data-callout="quote"], [data-callo
   pointer-events: none;
   z-index: -1;
 }
-body:not(.umbria-zitat-schlicht) .callout:is([data-callout="quote"], [data-callout="cite"], [data-callout="zitat"]) > .callout-content {
+body:not(.umbria-plain-quotes) .callout:is([data-callout="quote"], [data-callout="cite"]) > .callout-content {
   font-style: italic;
   font-size: 1.2em;
   line-height: 1.5;
   color: var(--umbria-head);
 }
-body:not(.umbria-zitat-schlicht) .callout:is([data-callout="quote"], [data-callout="cite"], [data-callout="zitat"]) > .callout-content > p:last-child {
+body:not(.umbria-plain-quotes) .callout:is([data-callout="quote"], [data-callout="cite"]) > .callout-content > p:last-child {
   margin-bottom: 0;
 }
-body:not(.umbria-zitat-schlicht) .callout:is([data-callout="quote"], [data-callout="cite"], [data-callout="zitat"]) > .callout-title {
+body:not(.umbria-plain-quotes) .callout:is([data-callout="quote"], [data-callout="cite"]) > .callout-title {
   margin-top: 0.9em;
   font-family: var(--font-interface);
   font-size: 0.72em;
@@ -835,15 +888,11 @@ body:not(.umbria-zitat-schlicht) .callout:is([data-callout="quote"], [data-callo
   text-transform: uppercase;
   color: var(--text-muted);
 }
-body:not(.umbria-zitat-schlicht) .callout:is([data-callout="quote"], [data-callout="cite"], [data-callout="zitat"]) > .callout-title .callout-icon {
+body:not(.umbria-plain-quotes) .callout:is([data-callout="quote"], [data-callout="cite"]) > .callout-title .callout-icon {
   display: none;
 }
-body:not(.umbria-zitat-schlicht) .callout:is([data-callout="quote"], [data-callout="cite"], [data-callout="zitat"]) > .callout-title .callout-title-inner {
+body:not(.umbria-plain-quotes) .callout:is([data-callout="quote"], [data-callout="cite"]) > .callout-title .callout-title-inner {
   font-weight: 600;
-}
-.callout[data-callout="zitat"] {
-  --callout-color: var(--umbria-accent-rgb);
-  --callout-icon: lucide-quote;
 }
 
 /* --------------------------------------------------------------------------
@@ -869,48 +918,178 @@ body:not(.umbria-zitat-schlicht) .callout:is([data-callout="quote"], [data-callo
   color: var(--text-normal);
 }
 
-/* Custom callouts for everyday notes (English and German names) */
-.callout:is([data-callout="stoa"], [data-callout="stoic"]) {
+/* Custom callouts for everyday notes */
+.callout:is([data-callout="stoic"]) {
   --callout-color: var(--umbria-accent-rgb);
   --callout-icon: lucide-landmark;
 }
-.callout:is([data-callout="reflexion"], [data-callout="reflection"]) {
+.callout:is([data-callout="reflection"]) {
   --callout-color: var(--umbria-slate-rgb);
   --callout-icon: lucide-moon;
 }
-.callout:is([data-callout="praxis"], [data-callout="practice"]) {
+.callout:is([data-callout="practice"]) {
   --callout-color: var(--umbria-moss-rgb);
   --callout-icon: lucide-sprout;
 }
-.callout:is([data-callout="gedanke"], [data-callout="thought"]) {
+.callout:is([data-callout="thought"]) {
   --callout-color: var(--umbria-plum-rgb);
   --callout-icon: lucide-lightbulb;
 }
-.callout:is([data-callout="dankbar"], [data-callout="gratitude"]) {
+.callout:is([data-callout="gratitude"]) {
   --callout-color: var(--umbria-honey-rgb);
   --callout-icon: lucide-flame;
 }
 
+.callout[data-callout="memento"] {
+  --callout-color: var(--umbria-stone-rgb);
+  --callout-icon: lucide-hourglass;
+}
+.callout[data-callout="memento"] > .callout-title .callout-title-inner {
+  font-family: var(--umbria-inscription);
+  font-size: 0.86em;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.callout[data-callout="memento"] > .callout-content {
+  font-style: italic;
+  color: var(--text-muted);
+}
+.callout[data-callout="journal"] {
+  --callout-color: var(--umbria-slate-rgb);
+  --callout-icon: lucide-notebook-pen;
+}
+
 /* Stoic: contour lines in the background on the right */
-body:not(.umbria-topo-aus) .callout:is([data-callout="stoa"], [data-callout="stoic"]) {
+body:not(.umbria-topo-off) .callout:is([data-callout="stoic"]) {
   position: relative;
   isolation: isolate;
   overflow: hidden;
 }
-body:not(.umbria-topo-aus) .callout:is([data-callout="stoa"], [data-callout="stoic"])::before,
-body:not(.umbria-topo-aus) .callout:is([data-callout="stoa"], [data-callout="stoic"])::after {
+body:not(.umbria-topo-off) .callout:is([data-callout="stoic"])::before,
+body:not(.umbria-topo-off) .callout:is([data-callout="stoic"])::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
   pointer-events: none;
 }
-body:not(.umbria-topo-aus) .callout:is([data-callout="stoa"], [data-callout="stoic"])::before {
-  background: var(--umbria-topo-img) right center / 760px auto no-repeat;
-  opacity: calc(var(--umbria-topo-staerke) * 1.6);
+body:not(.umbria-topo-off) .callout:is([data-callout="stoic"])::before {
+  background: var(--umbria-accent);
+  -webkit-mask: var(--umbria-topo-img) right center / 760px auto no-repeat;
+  mask: var(--umbria-topo-img) right center / 760px auto no-repeat;
+  opacity: calc(var(--umbria-topo-strength) * 1.6);
 }
-body:not(.umbria-topo-aus) .callout:is([data-callout="stoa"], [data-callout="stoic"])::after {
+body:not(.umbria-topo-off) .callout:is([data-callout="stoic"])::after {
   background: linear-gradient(90deg, var(--umbria-callout-bg) 35%, transparent 85%);
+}
+
+/* --------------------------------------------------------------------------
+   TILES — a grid of link cards from a plain list
+     > [!tiles]            (metadata: cols-2, cols-3, cols-4, small)
+     > - [[Note]]
+     > - [[Other note]] #tile/rust     (optional colour per tile)
+   Colours cycle: moss, slate, amber, rust, honey, plum.
+   -------------------------------------------------------------------------- */
+
+.callout[data-callout="tiles"] {
+  --callout-color: var(--umbria-accent-rgb);
+  --callout-icon: lucide-layout-grid;
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+}
+.callout[data-callout="tiles"] > .callout-title {
+  display: none;
+}
+.callout[data-callout="tiles"] > .callout-content {
+  padding: 0;
+}
+.callout[data-callout="tiles"] > .callout-content > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin: 0.4em 0;
+  padding: 0;
+  list-style: none;
+}
+.callout[data-callout="tiles"][data-callout-metadata~="cols-2"] > .callout-content > ul { grid-template-columns: repeat(2, 1fr); }
+.callout[data-callout="tiles"][data-callout-metadata~="cols-3"] > .callout-content > ul { grid-template-columns: repeat(3, 1fr); }
+.callout[data-callout="tiles"][data-callout-metadata~="cols-4"] > .callout-content > ul { grid-template-columns: repeat(4, 1fr); }
+.is-phone .callout[data-callout="tiles"] > .callout-content > ul { grid-template-columns: repeat(2, 1fr); }
+
+.callout[data-callout="tiles"] li {
+  --tile-rgb: var(--umbria-moss-rgb);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3em;
+  min-height: 120px;
+  margin: 0;
+  padding: 1.4rem 1rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9em;
+  background-color: color-mix(in srgb, rgb(var(--tile-rgb)) 12%, var(--background-primary));
+  border: 1px solid rgba(var(--tile-rgb), 0.28);
+  border-top: 3px solid rgb(var(--tile-rgb));
+  border-radius: var(--radius-l);
+  box-shadow: var(--umbria-shadow);
+  transition: transform 250ms ease, background-color 250ms ease;
+}
+.callout[data-callout="tiles"][data-callout-metadata~="small"] li {
+  min-height: 72px;
+  padding: 0.9rem 0.8rem;
+}
+.callout[data-callout="tiles"] li:nth-child(6n + 2) { --tile-rgb: var(--umbria-slate-rgb); }
+.callout[data-callout="tiles"] li:nth-child(6n + 3) { --tile-rgb: var(--umbria-accent-rgb); }
+.callout[data-callout="tiles"] li:nth-child(6n + 4) { --tile-rgb: var(--umbria-rust-rgb); }
+.callout[data-callout="tiles"] li:nth-child(6n + 5) { --tile-rgb: var(--umbria-honey-rgb); }
+.callout[data-callout="tiles"] li:nth-child(6n + 6) { --tile-rgb: var(--umbria-plum-rgb); }
+.callout[data-callout="tiles"] li:has(.tag[href="#tile/moss"]) { --tile-rgb: var(--umbria-moss-rgb); }
+.callout[data-callout="tiles"] li:has(.tag[href="#tile/slate"]) { --tile-rgb: var(--umbria-slate-rgb); }
+.callout[data-callout="tiles"] li:has(.tag[href="#tile/amber"]) { --tile-rgb: var(--umbria-accent-rgb); }
+.callout[data-callout="tiles"] li:has(.tag[href="#tile/rust"]) { --tile-rgb: var(--umbria-rust-rgb); }
+.callout[data-callout="tiles"] li:has(.tag[href="#tile/honey"]) { --tile-rgb: var(--umbria-honey-rgb); }
+.callout[data-callout="tiles"] li:has(.tag[href="#tile/plum"]) { --tile-rgb: var(--umbria-plum-rgb); }
+.callout[data-callout="tiles"] li:has(.tag[href="#tile/stone"]) { --tile-rgb: var(--umbria-stone-rgb); }
+.callout[data-callout="tiles"] li .tag[href^="#tile/"] {
+  display: none;
+}
+.callout[data-callout="tiles"] li:hover {
+  transform: translateY(-3px);
+  background-color: color-mix(in srgb, rgb(var(--tile-rgb)) 20%, var(--background-primary));
+}
+.callout[data-callout="tiles"] li::marker {
+  content: "";
+}
+.callout[data-callout="tiles"] li > :is(.list-bullet, .list-collapse-indicator) {
+  display: none;
+}
+.callout[data-callout="tiles"] li a:is(.internal-link, .external-link) {
+  color: rgb(var(--tile-rgb));
+  font-family: var(--umbria-head-font);
+  font-size: 1.65em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-decoration: none;
+  background: none;
+  padding: 0;
+}
+/* The whole tile is the link */
+.callout[data-callout="tiles"] li a:is(.internal-link, .external-link)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+.callout[data-callout="tiles"] li:has(a:focus-visible) {
+  outline: 2px solid rgb(var(--tile-rgb));
+  outline-offset: 2px;
 }
 
 /* --------------------------------------------------------------------------
@@ -921,10 +1100,10 @@ body {
   --umbria-orn: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 18' fill='none' stroke='black' stroke-width='1.3'%3E%3Cpath d='M15 2c7 0 13 3 13 7s-6 7-13 7S2 13 2 9s6-7 13-7z'/%3E%3Cpath d='M15 5.2c4.4 0 8 1.7 8 3.8s-3.6 3.8-8 3.8-8-1.7-8-3.8 3.6-3.8 8-3.8z'/%3E%3Cpath d='M15 8c1.7 0 3 .45 3 1s-1.3 1-3 1-3-.45-3-1 1.3-1 3-1z'/%3E%3C/svg%3E");
   --umbria-orn-w: 30px;
 }
-body.umbria-orn-sanduhr {
+body.umbria-orn-hourglass {
   --umbria-orn: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-7 0 30 22' fill='none' stroke='black' stroke-width='1.3'%3E%3Cpath d='M2 1h12M2 21h12M3 1c0 6 10 7 10 10S3 15 3 21M13 1c0 6-10 7-10 10s10 4 10 10'/%3E%3Cpath d='M6 19h4l-2-2.4z' fill='black'/%3E%3C/svg%3E");
 }
-body.umbria-orn-welle {
+body.umbria-orn-wave {
   --umbria-orn: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 16' fill='none' stroke='black' stroke-width='1.3'%3E%3Cpath d='M2 16a12 12 0 0 1 24 0M6 16a8 8 0 0 1 16 0M10 16a4 4 0 0 1 8 0'/%3E%3C/svg%3E");
 }
 
@@ -951,11 +1130,11 @@ body.umbria-orn-welle {
   -webkit-mask: var(--umbria-orn) center / contain no-repeat;
   mask: var(--umbria-orn) center / contain no-repeat;
 }
-body.umbria-orn-keins .markdown-rendered hr {
+body.umbria-orn-none .markdown-rendered hr {
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--background-modifier-border-hover), transparent);
 }
-body.umbria-orn-keins .markdown-rendered hr::after {
+body.umbria-orn-none .markdown-rendered hr::after {
   display: none;
 }
 
@@ -964,52 +1143,56 @@ body.umbria-orn-keins .markdown-rendered hr::after {
    Fixed in the pane, bottom right, fading out towards the text.
    -------------------------------------------------------------------------- */
 
-body:not(.umbria-topo-aus) .workspace-leaf-content[data-type="markdown"] > .view-content {
+body:not(.umbria-topo-off) .workspace-leaf-content[data-type="markdown"] > .view-content {
   position: relative;
   isolation: isolate;
   background-color: var(--background-primary);
 }
-body:not(.umbria-topo-aus) .workspace-leaf-content[data-type="markdown"] > .view-content > :is(.markdown-source-view, .markdown-reading-view),
-body:not(.umbria-topo-aus) .workspace-leaf-content[data-type="markdown"] :is(.markdown-preview-view, .cm-scroller, .cm-editor) {
+body:not(.umbria-topo-off) .workspace-leaf-content[data-type="markdown"] > .view-content > :is(.markdown-source-view, .markdown-reading-view),
+body:not(.umbria-topo-off) .workspace-leaf-content[data-type="markdown"] :is(.markdown-preview-view, .cm-scroller, .cm-editor) {
   background-color: transparent;
 }
-/* Lines as a plain background image (drawn at full Retina/5K resolution,
-   unlike mask-image in Electron). Fade: a gradient in the background colour on top. */
-body:not(.umbria-topo-aus) .workspace-leaf-content[data-type="markdown"] > .view-content::before,
-body:not(.umbria-topo-aus) .workspace-leaf-content[data-type="markdown"] > .view-content::after {
+/* Lines as a mask over the accent colour, so they follow the Accent setting.
+   Fade: a gradient in the background colour on top. */
+body:not(.umbria-topo-off) .workspace-leaf-content[data-type="markdown"] > .view-content::before,
+body:not(.umbria-topo-off) .workspace-leaf-content[data-type="markdown"] > .view-content::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
   pointer-events: none;
 }
-body:not(.umbria-topo-aus) .workspace-leaf-content[data-type="markdown"] > .view-content::before {
-  background: var(--umbria-topo-img) right bottom / 1920px auto no-repeat;
-  opacity: var(--umbria-topo-staerke);
+body:not(.umbria-topo-off) .workspace-leaf-content[data-type="markdown"] > .view-content::before {
+  background: var(--umbria-accent);
+  -webkit-mask: var(--umbria-topo-img) right bottom / 1920px auto no-repeat;
+  mask: var(--umbria-topo-img) right bottom / 1920px auto no-repeat;
+  opacity: var(--umbria-topo-strength);
 }
-body:not(.umbria-topo-aus) .workspace-leaf-content[data-type="markdown"] > .view-content::after {
+body:not(.umbria-topo-off) .workspace-leaf-content[data-type="markdown"] > .view-content::after {
   /* Image 1920 × 1280 px, fade 1840 × 1220 px: always fully opaque before the image edge */
   background: radial-gradient(1840px 1220px at 100% 100%, transparent 22%, color-mix(in srgb, var(--background-primary) 40%, transparent) 58%, var(--background-primary) 100%);
 }
 
 /* Empty tabs: the whole landscape, very quiet */
-body:not(.umbria-topo-aus) .empty-state {
+body:not(.umbria-topo-off) .empty-state {
   position: relative;
   isolation: isolate;
 }
-body:not(.umbria-topo-aus) .empty-state::before,
-body:not(.umbria-topo-aus) .empty-state::after {
+body:not(.umbria-topo-off) .empty-state::before,
+body:not(.umbria-topo-off) .empty-state::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
   pointer-events: none;
 }
-body:not(.umbria-topo-aus) .empty-state::before {
-  background: var(--umbria-topo-img) center / 1200px auto no-repeat;
-  opacity: calc(var(--umbria-topo-staerke) * 0.9);
+body:not(.umbria-topo-off) .empty-state::before {
+  background: var(--umbria-accent);
+  -webkit-mask: var(--umbria-topo-img) center / 1200px auto no-repeat;
+  mask: var(--umbria-topo-img) center / 1200px auto no-repeat;
+  opacity: calc(var(--umbria-topo-strength) * 0.9);
 }
-body:not(.umbria-topo-aus) .empty-state::after {
+body:not(.umbria-topo-off) .empty-state::after {
   background: radial-gradient(closest-side, transparent 30%, var(--background-primary));
 }
 
@@ -1022,7 +1205,7 @@ body.umbria-memento .status-bar::before {
   order: -1;
   margin-right: auto;
   padding: 0 10px 0 4px;
-  font-family: var(--umbria-inschrift);
+  font-family: var(--umbria-inscription);
   font-size: 0.92em;
   letter-spacing: 0.22em;
   color: var(--text-muted);
@@ -1105,6 +1288,45 @@ input[type="checkbox"] {
   background: rgba(var(--umbria-slate-rgb), 0.25);
 }
 :is(.task-list-item, .HyperMD-task-line)[data-task=">"] input[type="checkbox"]::after { display: none; }
+
+/* Question [?] */
+:is(.task-list-item, .HyperMD-task-line)[data-task="?"] input[type="checkbox"] {
+  background: rgba(var(--umbria-slate-rgb), 0.18);
+  border-color: var(--umbria-slate);
+}
+:is(.task-list-item, .HyperMD-task-line)[data-task="?"] input[type="checkbox"]::after {
+  content: "?";
+  -webkit-mask-image: none;
+  background: none;
+  color: var(--umbria-slate);
+  font-weight: 800;
+  font-size: 0.75em;
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+/* Star [*] */
+:is(.task-list-item, .HyperMD-task-line)[data-task="*"] input[type="checkbox"] {
+  background: rgb(var(--umbria-honey-rgb));
+  border-color: rgb(var(--umbria-honey-rgb));
+}
+:is(.task-list-item, .HyperMD-task-line)[data-task="*"] input[type="checkbox"]::after {
+  content: "\2605";
+  -webkit-mask-image: none;
+  background: none;
+  color: var(--background-primary);
+  font-size: 0.7em;
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+:is(.task-list-item, .HyperMD-task-line)[data-task="?"],
+:is(.task-list-item, .HyperMD-task-line)[data-task="*"] {
+  --checklist-done-decoration: none;
+  --checklist-done-color: var(--text-normal);
+}
 
 /* Tasks plugin: dates as chips */
 :is(.task-due, .task-scheduled, .task-start, .task-done, .task-recurring, .task-priority) {
@@ -1204,6 +1426,75 @@ table.dataview tbody tr:hover {
 }
 
 /* --------------------------------------------------------------------------
+   CANVAS, GRAPH & BASES
+   -------------------------------------------------------------------------- */
+
+/* Canvas: warm dot grid, soft cards, carved group labels */
+body {
+  --canvas-background: var(--background-primary);
+  --canvas-dot-pattern: var(--background-modifier-border-hover);
+  --canvas-card-label-color: var(--text-muted);
+}
+body.theme-dark,
+body.theme-light {
+  --canvas-color: var(--background-modifier-border-hover);
+}
+.canvas-wrapper {
+  --shadow-stationary: 0 10px 28px -16px rgba(var(--umbria-shadow-rgb), 0.55);
+}
+.canvas-node-container {
+  border-radius: var(--radius-l);
+}
+.canvas-node-label {
+  font-family: var(--font-interface);
+  font-size: 0.78em;
+  letter-spacing: 0.04em;
+}
+.canvas-group-label {
+  font-family: var(--umbria-head-font);
+  letter-spacing: var(--umbria-head-tracking);
+  font-weight: 600;
+}
+
+/* Graph: notes in stone, the active one in amber, tags in moss */
+body {
+  --graph-node: var(--text-muted);
+  --graph-node-focused: var(--umbria-accent);
+  --graph-node-tag: var(--umbria-moss);
+  --graph-node-attachment: rgb(var(--umbria-honey-rgb));
+  --graph-node-unresolved: var(--text-faint);
+  --graph-line: var(--background-modifier-border-hover);
+  --graph-text: var(--text-normal);
+}
+
+/* Bases: tables like the note tables, cards like callouts */
+body {
+  --bases-table-header-background: var(--umbria-card);
+  --bases-table-header-color: var(--text-muted);
+  --bases-table-header-weight: 600;
+  --bases-table-row-background-hover: rgba(var(--umbria-accent-rgb), 0.06);
+  --bases-table-cell-shadow-focus: 0 0 0 2px var(--umbria-accent);
+  --bases-table-container-border-radius: var(--radius-l);
+  --bases-cards-background: var(--umbria-card);
+  --bases-cards-cover-background: var(--background-secondary);
+  --bases-cards-radius: var(--radius-l);
+  --bases-cards-shadow: 0 0 0 1px var(--background-modifier-border), var(--umbria-shadow);
+  --bases-cards-shadow-hover: 0 0 0 1px rgba(var(--umbria-accent-rgb), 0.45), var(--umbria-shadow);
+  --bases-kanban-card-background: var(--umbria-card);
+  --bases-kanban-card-radius: var(--radius-l);
+  --bases-kanban-column-radius: var(--radius-l);
+  --bases-group-heading-property-color: var(--text-faint);
+}
+.bases-thead .bases-td {
+  font-size: 0.92em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.bases-group-heading {
+  font-family: var(--font-interface);
+}
+
+/* --------------------------------------------------------------------------
    PLUGINS
    -------------------------------------------------------------------------- */
 
@@ -1274,8 +1565,8 @@ progress::-webkit-progress-value {
    CALM: no motion
    -------------------------------------------------------------------------- */
 
-body.umbria-still,
-body.umbria-still * {
+body.umbria-no-motion,
+body.umbria-no-motion * {
   transition: none !important;
 }
 @media (prefers-reduced-motion: reduce) {
