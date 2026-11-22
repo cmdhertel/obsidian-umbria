@@ -138,8 +138,30 @@ def minify(css):
     return "\n".join(out) + "\n"
 
 
+GERMAN = re.compile(r"\b(zitat|stoa|reflexion|praxis|gedanke|dankbar|holz|farbe|ueberschrift|hoehenlinie|kachel\w*)\b", re.I)
+
+
+def check(src):
+    """Catch mistakes before they ship."""
+    settings = re.search(r"/\* @settings(.*?)\*/", src, re.S)
+    assert settings, "@settings block missing"
+    ids = re.findall(r"^\s+id: (\S+)", settings.group(1), re.M)
+    dup = {i for i in ids if ids.count(i) > 1}
+    assert not dup, f"duplicate Style Settings ids: {dup}"
+    body = re.sub(r"/\*.*?\*/", "", src, flags=re.S)
+    body = re.sub(r'"(?:[^"\\]|\\.)*"', '""', body)
+    assert body.count("{") == body.count("}"), f"unbalanced braces: {body.count('{')} {{ vs {body.count('}')} }}"
+    hit = GERMAN.search(body)
+    assert not hit, f"German identifier in CSS: {hit.group(0)!r}"
+    for cls in re.findall(r"value: (umbria-[\w-]+)", settings.group(1)) + \
+               [i for i, t in re.findall(r"id: (umbria-[\w-]+)\n.*?type: (\S+)", settings.group(1), re.S) if t == "class-toggle"]:
+        defaults = re.findall(r"default: (umbria-[\w-]+)", settings.group(1))  # defaults need no CSS of their own
+        assert re.search(r"\." + re.escape(cls) + r"(?![\w-])", body) or cls in defaults, f"setting class .{cls} is never used"
+
+
 def main():
     css = SRC.read_text()
+    check(css)
     fonts = "\n".join([
         face("Inter", "normal", "100 900", "inter.woff2"),
         face("Literata", "normal", "200 900", "literata.woff2"),

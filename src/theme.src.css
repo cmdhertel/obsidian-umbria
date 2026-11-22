@@ -1,8 +1,8 @@
-/* Umbria 1.1.0 — Obsidian theme by Gian Luca Hertel (MIT). Fonts: Inter, Literata, Cinzel (all SIL Open Font License 1.1) */
+/* Umbria 1.2.0 — Obsidian theme by Gian Luca Hertel (MIT). Fonts: Inter, Literata, Cinzel (all SIL Open Font License 1.1) */
 /*@@FONTS@@*/
 
 /* ==========================================================================
-   UMBRIA 1.1.0 — an Obsidian theme for everyday notes
+   UMBRIA 1.2.0 — an Obsidian theme for everyday notes
    Umbrian hills at dusk: carved letters, quiet contour lines, the warmth of espresso.
    Disciplined (one accent, all headings the same colour),
    sheltering (a tucked-in sidebar, soft warm shadows),
@@ -37,6 +37,9 @@ settings:
       -
         label: Autumn (deep red-brown / clay)
         value: umbria-bg-autumn
+      -
+        label: Ash (neutral charcoal / stone paper)
+        value: umbria-bg-ash
   -
     id: umbria-accent-rgb
     title: Accent (amber)
@@ -96,6 +99,25 @@ settings:
         label: Serif display (large Literata)
         value: umbria-h-display
   -
+    id: umbria-heading-colour
+    title: Heading colour
+    type: class-select
+    allowEmpty: false
+    default: umbria-hc-ink
+    options:
+      -
+        label: Ink (all headings in the text colour, default)
+        value: umbria-hc-ink
+      -
+        label: Title and H1 in the accent colour
+        value: umbria-hc-h1
+      -
+        label: All headings in the accent colour
+        value: umbria-hc-accent
+      -
+        label: Earth tones (each level its own colour)
+        value: umbria-hc-earth
+  -
     id: umbria-font-text
     title: Note font
     description: Only used when no text font is set under Settings → Appearance.
@@ -132,7 +154,7 @@ settings:
   -
     id: umbria-topo-off
     title: Turn off contour lines
-    description: Behind the editor, in empty tabs and in stoic callouts.
+    description: Behind the editor, in empty tabs and in stoic callouts. For a single note use cssclasses no-topo.
     type: class-toggle
     default: false
   -
@@ -177,6 +199,18 @@ settings:
     id: umbria-no-motion
     title: No animations
     description: Turns off transitions and hover effects.
+    type: class-toggle
+    default: false
+  -
+    id: umbria-contrast-high
+    title: Higher contrast
+    description: Darker secondary text and stronger borders in every wood and both modes.
+    type: class-toggle
+    default: false
+  -
+    id: umbria-quiet
+    title: Quiet interface
+    description: Ribbon, status bar, inactive tabs and note actions fade until you hover them.
     type: class-toggle
     default: false
 */
@@ -332,6 +366,26 @@ body {
   --table-header-weight: 600;
   --table-border-color: var(--background-modifier-border);
   --embed-border-start: 2px solid rgba(var(--umbria-accent-rgb), 0.4);
+
+  /* Code: within the palette */
+  --code-normal: var(--text-normal);
+  --code-comment: var(--text-faint);
+  --code-function: rgb(var(--umbria-honey-rgb));
+  --code-important: var(--umbria-rust);
+  --code-keyword: rgb(var(--umbria-plum-rgb));
+  --code-operator: var(--text-muted);
+  --code-property: var(--umbria-slate);
+  --code-punctuation: var(--text-muted);
+  --code-string: var(--umbria-moss);
+  --code-tag: var(--umbria-rust);
+  --code-value: var(--umbria-accent);
+  --code-size: 0.86em;
+
+  /* Footnotes and indentation guides */
+  --footnote-id-color: var(--text-accent);
+  --footnote-size: 0.86em;
+  --indentation-guide-color: rgba(var(--umbria-accent-rgb), 0.14);
+  --indentation-guide-color-active: rgba(var(--umbria-accent-rgb), 0.42);
 }
 
 /* ---------- DARK: Ember (espresso) ---------- */
@@ -446,6 +500,32 @@ body.theme-dark.umbria-bg-autumn {
   --divider-color: #33261e;
 }
 
+/* Ash (neutral charcoal) */
+body.theme-dark.umbria-bg-ash {
+  --background-primary: #1b1b1c;
+  --background-primary-alt: #181819;
+  --background-secondary: #151516;
+  --background-secondary-alt: #242425;
+  --background-modifier-border: #363637;
+  --background-modifier-border-hover: #47474a;
+  --background-modifier-form-field: #131314;
+  --interactive-normal: #27272a;
+  --interactive-hover: #303033;
+  --text-normal: #e0ddd7;
+  --text-muted: #a3a09a;
+  --text-faint: #6c6a66;
+  --umbria-head: #f0ede7;
+  --umbria-card: #242425;
+  --code-background: #202022;
+  --titlebar-background: #131314;
+  --titlebar-background-focused: #131314;
+  --ribbon-background: #111112;
+  --ribbon-background-collapsed: #111112;
+  --tab-container-background: #131314;
+  --status-bar-background: #111112;
+  --divider-color: #29292b;
+}
+
 /* ---------- LIGHT: Linen ---------- */
 body.theme-light {
   color-scheme: light;
@@ -469,8 +549,9 @@ body.theme-light {
   --color-accent-hsl: 32, 75%, 38%;
   --color-accent-1: color-mix(in srgb, rgb(var(--umbria-accent-rgb)) 88%, black);
   --color-accent-2: color-mix(in srgb, rgb(var(--umbria-accent-rgb)) 76%, black);
-  --text-accent: rgb(var(--umbria-accent-rgb));
-  --text-accent-hover: color-mix(in srgb, rgb(var(--umbria-accent-rgb)) 80%, black);
+  /* Link text a touch darker than the accent: ≥ 4.5:1 on every light paper (WCAG AA) */
+  --text-accent: color-mix(in srgb, rgb(var(--umbria-accent-rgb)) 88%, black);
+  --text-accent-hover: color-mix(in srgb, rgb(var(--umbria-accent-rgb)) 74%, black);
   --text-on-accent: #fffaf2;
   --text-on-accent-inverted: #fffaf2;
 
@@ -558,6 +639,46 @@ body.theme-light.umbria-bg-autumn {
   --divider-color: #dcc5b3;
 }
 
+/* Light Ash (stone paper) */
+body.theme-light.umbria-bg-ash {
+  --background-primary: #f2f1ee;
+  --background-primary-alt: #ecebe7;
+  --background-secondary: #e4e3de;
+  --background-secondary-alt: #f9f8f6;
+  --background-modifier-border: #d4d2cb;
+  --background-modifier-border-hover: #bbb8b0;
+  --background-modifier-form-field: #fbfaf8;
+  --interactive-normal: #fbfaf8;
+  --interactive-hover: #ecebe6;
+  --text-normal: #2a2927;
+  --text-muted: #63615c;
+  --text-faint: #94918a;
+  --umbria-head: #1c1b19;
+  --umbria-card: #f9f8f6;
+  --code-background: #e7e5e0;
+  --titlebar-background: #e0ded8;
+  --titlebar-background-focused: #e0ded8;
+  --ribbon-background: #e0ded8;
+  --ribbon-background-collapsed: #e0ded8;
+  --tab-container-background: #e0ded8;
+  --status-bar-background: #e0ded8;
+  --divider-color: #d4d2cb;
+}
+
+/* Higher contrast: derived from each paper, so it works for every wood and mode */
+body.theme-dark.umbria-contrast-high,
+body.theme-light.umbria-contrast-high {
+  --text-normal: var(--umbria-head);
+  --text-muted: color-mix(in srgb, var(--umbria-head) 80%, var(--background-primary));
+  --text-faint: color-mix(in srgb, var(--umbria-head) 62%, var(--background-primary));
+  --background-modifier-border: color-mix(in srgb, var(--umbria-head) 26%, var(--background-primary));
+  --background-modifier-border-hover: color-mix(in srgb, var(--umbria-head) 40%, var(--background-primary));
+  --checkbox-border-color: var(--text-muted);
+}
+body.theme-light.umbria-contrast-high {
+  --text-accent: color-mix(in srgb, rgb(var(--umbria-accent-rgb)) 78%, black);
+}
+
 /* --------------------------------------------------------------------------
    HEADINGS: three styles (Style Settings → Umbria → Type & reading)
    -------------------------------------------------------------------------- */
@@ -624,6 +745,27 @@ body.umbria-h-display :is(.markdown-rendered h3, .HyperMD-header-3) {
 .markdown-rendered h2 {
   padding-bottom: 0.35em;
   background: linear-gradient(90deg, var(--background-modifier-border), transparent 85%) left bottom / 100% 1px no-repeat;
+}
+
+/* Heading colour (Style Settings → Type & reading) */
+body.umbria-hc-h1 {
+  --inline-title-color: var(--text-accent);
+  --h1-color: var(--text-accent);
+}
+body.umbria-hc-accent {
+  --inline-title-color: var(--text-accent);
+  --h1-color: var(--text-accent);
+  --h2-color: var(--text-accent);
+  --h3-color: var(--text-accent);
+  --h4-color: var(--text-accent);
+}
+body.umbria-hc-earth {
+  --inline-title-color: var(--umbria-head);
+  --h1-color: var(--text-accent);
+  --h2-color: var(--umbria-rust);
+  --h3-color: var(--umbria-moss);
+  --h4-color: var(--umbria-slate);
+  --h5-color: rgb(var(--umbria-plum-rgb));
 }
 
 /* --------------------------------------------------------------------------
@@ -791,6 +933,66 @@ select:focus {
   font-variant-numeric: tabular-nums;
 }
 
+/* Code blocks: comments in italics, quiet labels */
+.markdown-rendered pre {
+  padding: 0.9em 1.1em;
+}
+.markdown-rendered .token.comment,
+.markdown-source-view .cm-comment {
+  font-style: italic;
+}
+.markdown-rendered .copy-code-button,
+.code-block-flair {
+  font-family: var(--font-interface);
+  font-size: 0.72em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+/* Footnotes: small, accent numbers, a fading rule instead of the ornament */
+.markdown-rendered :is(.footnote-ref, .footnote-link) {
+  font-family: var(--font-interface);
+  font-weight: 600;
+  color: var(--text-accent);
+  text-decoration: none;
+}
+.markdown-rendered :is(section.footnotes, .footnotes, .footnote-definitions) {
+  font-size: 0.86em;
+  color: var(--text-muted);
+}
+.markdown-rendered :is(hr.footnotes-sep, .footnotes > hr) {
+  height: 1px;
+  margin: 2.6em 0 1em;
+  background: linear-gradient(90deg, var(--background-modifier-border-hover), transparent 70%);
+}
+.markdown-rendered :is(hr.footnotes-sep, .footnotes > hr)::after {
+  display: none;
+}
+
+/* Embedded notes ![[Note]]: a soft card */
+:is(.markdown-rendered, .markdown-source-view) .internal-embed.markdown-embed:not(.canvas-node-content) {
+  padding: 0.3em 0.4em 0.3em 0.6em;
+  background: var(--umbria-card);
+  border: 1px solid var(--background-modifier-border);
+  border-inline-start: 2px solid rgba(var(--umbria-accent-rgb), 0.45);
+  border-radius: var(--radius-l);
+  box-shadow: var(--umbria-shadow);
+}
+.markdown-embed :is(.markdown-embed-title, .embed-title) {
+  font-family: var(--font-interface);
+  font-size: 0.76em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Images: softly rounded */
+:is(.markdown-rendered, .markdown-source-view) .image-embed img {
+  border-radius: var(--radius-m);
+}
+
 /* --------------------------------------------------------------------------
    QUOTES — the centrepiece
    > [!quote] Seneca · On the Shortness of Life    ← the title is shown as the source below
@@ -815,8 +1017,8 @@ body:not(.umbria-plain-quotes) .markdown-rendered blockquote {
 body:not(.umbria-plain-quotes) .markdown-rendered blockquote::before {
   content: "\201C";
   position: absolute;
-  left: 0.32em;
-  top: -0.62em;
+  left: 0.22em;
+  top: -0.06em;
   font: italic 600 4.2em/1 var(--font-text);
   color: var(--umbria-accent);
   opacity: 0.32;
@@ -863,8 +1065,8 @@ body:not(.umbria-plain-quotes) .callout:is([data-callout="quote"], [data-callout
 body:not(.umbria-plain-quotes) .callout:is([data-callout="quote"], [data-callout="cite"])::before {
   content: "\201C";
   position: absolute;
-  left: 0.3em;
-  top: -0.5em;
+  left: 0.2em;
+  top: -0.08em;
   font: italic 600 5.2em/1 var(--font-text);
   color: var(--umbria-accent);
   opacity: 0.32;
@@ -985,15 +1187,17 @@ body:not(.umbria-topo-off) .callout:is([data-callout="stoic"])::after {
 
 /* --------------------------------------------------------------------------
    TILES — a grid of link cards from a plain list
-     > [!tiles]            (metadata: cols-2, cols-3, cols-4, small)
-     > - [[Note]]
-     > - [[Other note]] #tile/rust     (optional colour per tile)
+     > [!tiles|cols-3]                   options: cols-2 … cols-5, small, list, wide, plain, mono
+     > - 🌱 [[Garden]] *Beds and seeds*   emoji = icon, *italic* = subtitle
+     > - ![[cover.jpg]] [[Travel]]       an embedded image becomes the cover
+     > - [[Home]] #tile/rust             colour per tile (tag is hidden)
    Colours cycle: moss, slate, amber, rust, honey, plum.
    -------------------------------------------------------------------------- */
 
 .callout[data-callout="tiles"] {
   --callout-color: var(--umbria-accent-rgb);
   --callout-icon: lucide-layout-grid;
+  --tile-unit: var(--font-text-size, 16px);
   padding: 0;
   background: none;
   border: none;
@@ -1014,25 +1218,35 @@ body:not(.umbria-topo-off) .callout:is([data-callout="stoic"])::after {
   padding: 0;
   list-style: none;
 }
-.callout[data-callout="tiles"][data-callout-metadata~="cols-2"] > .callout-content > ul { grid-template-columns: repeat(2, 1fr); }
-.callout[data-callout="tiles"][data-callout-metadata~="cols-3"] > .callout-content > ul { grid-template-columns: repeat(3, 1fr); }
-.callout[data-callout="tiles"][data-callout-metadata~="cols-4"] > .callout-content > ul { grid-template-columns: repeat(4, 1fr); }
-.is-phone .callout[data-callout="tiles"] > .callout-content > ul { grid-template-columns: repeat(2, 1fr); }
+.callout[data-callout="tiles"][data-callout-metadata~="list"] > .callout-content > ul {
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 0.6rem;
+}
+.callout[data-callout="tiles"][data-callout-metadata~="cols-2"] > .callout-content > ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.callout[data-callout="tiles"][data-callout-metadata~="cols-3"] > .callout-content > ul { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.callout[data-callout="tiles"][data-callout-metadata~="cols-4"] > .callout-content > ul { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.callout[data-callout="tiles"][data-callout-metadata~="cols-5"] > .callout-content > ul { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.is-phone .callout[data-callout="tiles"] > .callout-content > ul { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.7rem; }
+.is-phone .callout[data-callout="tiles"][data-callout-metadata~="list"] > .callout-content > ul { grid-template-columns: minmax(0, 1fr); }
 
+/* The tile. Its own text (an emoji in front of the link) is the icon. */
 .callout[data-callout="tiles"] li {
   --tile-rgb: var(--umbria-moss-rgb);
   position: relative;
+  isolation: isolate;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.3em;
+  gap: 0.25rem;
+  min-width: 0;
   min-height: 120px;
   margin: 0;
   padding: 1.4rem 1rem;
   text-align: center;
   color: var(--text-muted);
-  font-size: 0.9em;
+  font-size: calc(var(--tile-unit) * 1.9);
+  line-height: 1.15;
   background-color: color-mix(in srgb, rgb(var(--tile-rgb)) 12%, var(--background-primary));
   border: 1px solid rgba(var(--tile-rgb), 0.28);
   border-top: 3px solid rgb(var(--tile-rgb));
@@ -1043,12 +1257,20 @@ body:not(.umbria-topo-off) .callout:is([data-callout="stoic"])::after {
 .callout[data-callout="tiles"][data-callout-metadata~="small"] li {
   min-height: 72px;
   padding: 0.9rem 0.8rem;
+  font-size: calc(var(--tile-unit) * 1.4);
 }
+.callout[data-callout="tiles"][data-callout-metadata~="wide"] li:first-child {
+  grid-column: 1 / -1;
+}
+
+/* Colours */
 .callout[data-callout="tiles"] li:nth-child(6n + 2) { --tile-rgb: var(--umbria-slate-rgb); }
 .callout[data-callout="tiles"] li:nth-child(6n + 3) { --tile-rgb: var(--umbria-accent-rgb); }
 .callout[data-callout="tiles"] li:nth-child(6n + 4) { --tile-rgb: var(--umbria-rust-rgb); }
 .callout[data-callout="tiles"] li:nth-child(6n + 5) { --tile-rgb: var(--umbria-honey-rgb); }
 .callout[data-callout="tiles"] li:nth-child(6n + 6) { --tile-rgb: var(--umbria-plum-rgb); }
+.callout[data-callout="tiles"][data-callout-metadata~="plain"] li { --tile-rgb: var(--umbria-stone-rgb); }
+.callout[data-callout="tiles"][data-callout-metadata~="mono"] li { --tile-rgb: var(--umbria-accent-rgb); }
 .callout[data-callout="tiles"] li:has(.tag[href="#tile/moss"]) { --tile-rgb: var(--umbria-moss-rgb); }
 .callout[data-callout="tiles"] li:has(.tag[href="#tile/slate"]) { --tile-rgb: var(--umbria-slate-rgb); }
 .callout[data-callout="tiles"] li:has(.tag[href="#tile/amber"]) { --tile-rgb: var(--umbria-accent-rgb); }
@@ -1059,26 +1281,44 @@ body:not(.umbria-topo-off) .callout:is([data-callout="stoic"])::after {
 .callout[data-callout="tiles"] li .tag[href^="#tile/"] {
   display: none;
 }
+
 .callout[data-callout="tiles"] li:hover {
   transform: translateY(-3px);
   background-color: color-mix(in srgb, rgb(var(--tile-rgb)) 20%, var(--background-primary));
 }
+@media (hover: none) {
+  .callout[data-callout="tiles"] li:hover { transform: none; }
+}
 .callout[data-callout="tiles"] li::marker {
   content: "";
 }
-.callout[data-callout="tiles"] li > :is(.list-bullet, .list-collapse-indicator) {
+.callout[data-callout="tiles"] li > :is(.list-bullet, .list-collapse-indicator, br) {
   display: none;
 }
+
+/* Title */
 .callout[data-callout="tiles"] li a:is(.internal-link, .external-link) {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  hyphens: auto;
   color: rgb(var(--tile-rgb));
   font-family: var(--umbria-head-font);
-  font-size: 1.65em;
+  font-size: calc(var(--tile-unit) * 1.45);
   font-weight: 600;
   letter-spacing: 0.08em;
   line-height: 1.2;
   text-decoration: none;
   background: none;
   padding: 0;
+}
+.callout[data-callout="tiles"][data-callout-metadata~="small"] li a:is(.internal-link, .external-link) {
+  font-size: calc(var(--tile-unit) * 1.2);
+}
+.callout[data-callout="tiles"]:is([data-callout-metadata~="cols-4"], [data-callout-metadata~="cols-5"]) li a:is(.internal-link, .external-link) {
+  letter-spacing: 0.04em;
+}
+.callout[data-callout="tiles"][data-callout-metadata~="cols-5"] li a:is(.internal-link, .external-link) {
+  font-size: calc(var(--tile-unit) * 1.05);
 }
 /* The whole tile is the link */
 .callout[data-callout="tiles"] li a:is(.internal-link, .external-link)::after {
@@ -1090,6 +1330,200 @@ body:not(.umbria-topo-off) .callout:is([data-callout="stoic"])::after {
 .callout[data-callout="tiles"] li:has(a:focus-visible) {
   outline: 2px solid rgb(var(--tile-rgb));
   outline-offset: 2px;
+}
+
+/* Subtitle: *italic* text */
+.callout[data-callout="tiles"] li > em {
+  font-family: var(--font-interface);
+  font-size: calc(var(--tile-unit) * 0.82);
+  font-style: normal;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  color: var(--text-muted);
+}
+
+/* Cover image: ![[image.jpg]] in the tile */
+.callout[data-callout="tiles"] li:has(> :is(.image-embed, img)) {
+  justify-content: flex-end;
+  min-height: 170px;
+  overflow: hidden;
+}
+.callout[data-callout="tiles"][data-callout-metadata~="small"] li:has(> :is(.image-embed, img)) {
+  min-height: 120px;
+}
+.callout[data-callout="tiles"] li > :is(.image-embed, img) {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.callout[data-callout="tiles"] li > .image-embed img,
+.callout[data-callout="tiles"] li > img {
+  display: block;
+  width: 100% !important;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  border-radius: 0;
+  transition: transform 400ms ease;
+}
+.callout[data-callout="tiles"] li:hover > :is(.image-embed img, img) {
+  transform: scale(1.04);
+}
+.callout[data-callout="tiles"] li:has(> :is(.image-embed, img))::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(to top, var(--background-primary) 12%, color-mix(in srgb, var(--background-primary) 70%, transparent) 38%, transparent 75%);
+}
+
+/* list: compact rows with a coloured edge */
+.callout[data-callout="tiles"][data-callout-metadata~="list"] li {
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 0.7rem;
+  min-height: 0;
+  padding: 0.7rem 1rem;
+  text-align: left;
+  font-size: calc(var(--tile-unit) * 1.3);
+  border-top-width: 1px;
+  border-left: 3px solid rgb(var(--tile-rgb));
+}
+.callout[data-callout="tiles"][data-callout-metadata~="list"] li a:is(.internal-link, .external-link) {
+  font-size: calc(var(--tile-unit) * 1.08);
+  letter-spacing: 0.05em;
+}
+.callout[data-callout="tiles"][data-callout-metadata~="list"] li > em {
+  margin-inline-start: auto;
+  text-align: right;
+}
+.callout[data-callout="tiles"][data-callout-metadata~="list"] li:hover {
+  transform: translateX(3px);
+}
+.callout[data-callout="tiles"][data-callout-metadata~="list"] li:has(> :is(.image-embed, img)) {
+  justify-content: flex-start;
+  min-height: 0;
+}
+.callout[data-callout="tiles"][data-callout-metadata~="list"] li > :is(.image-embed, img) {
+  position: static;
+  flex: none;
+  width: 2.2em;
+  height: 2.2em;
+  font-size: calc(var(--tile-unit) * 1);
+  border-radius: var(--radius-s);
+  overflow: hidden;
+}
+.callout[data-callout="tiles"][data-callout-metadata~="list"] li:has(> :is(.image-embed, img))::before {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   NOTE LAYOUTS — per note, via the cssclasses property
+     wide · max · table-wide · img-grid · cards · no-topo
+   Names match other popular themes, so notes keep working when you switch.
+   -------------------------------------------------------------------------- */
+
+/* wide: a wider column; max: the whole pane */
+:is(.markdown-source-view, .markdown-preview-view).wide {
+  --file-line-width: min(100%, calc(var(--umbria-line-width) * 1.4));
+}
+:is(.markdown-source-view, .markdown-preview-view).max {
+  --file-line-width: 100%;
+}
+
+/* table-wide: tables fill the column */
+:is(.markdown-source-view, .markdown-preview-view).table-wide :is(.markdown-rendered table, table.dataview, .table-wrapper, .cm-table-widget table) {
+  width: 100%;
+}
+
+/* img-grid: images next to each other become a gallery (reading view) */
+.markdown-preview-view.img-grid p:has(> .image-embed ~ .image-embed) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.6rem;
+}
+.markdown-preview-view.img-grid p:has(> .image-embed ~ .image-embed) > br {
+  display: none;
+}
+.markdown-preview-view.img-grid p:has(> .image-embed ~ .image-embed) > .image-embed {
+  margin: 0;
+}
+.markdown-preview-view.img-grid p:has(> .image-embed ~ .image-embed) > .image-embed img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+/* cards: Dataview tables as a card grid, the first column is the title */
+.markdown-preview-view.cards table.dataview {
+  display: block;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+  font-size: 0.9em;
+}
+.markdown-preview-view.cards table.dataview thead {
+  display: none;
+}
+.markdown-preview-view.cards table.dataview tbody {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.9rem;
+}
+.markdown-preview-view.cards table.dataview tbody tr {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--umbria-card);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-l);
+  box-shadow: var(--umbria-shadow);
+  transition: transform 250ms ease, border-color 250ms ease;
+}
+.markdown-preview-view.cards table.dataview tbody tr:hover {
+  background: var(--umbria-card);
+  border-color: rgba(var(--umbria-accent-rgb), 0.45);
+  transform: translateY(-2px);
+}
+.markdown-preview-view.cards table.dataview td {
+  padding: 0.15em 0.9em;
+  border: none;
+  color: var(--text-muted);
+}
+.markdown-preview-view.cards table.dataview td:first-child {
+  padding-top: 0.8em;
+  font-family: var(--umbria-head-font);
+  font-size: 1.1em;
+  font-weight: 600;
+  letter-spacing: var(--umbria-head-tracking);
+  color: var(--umbria-head);
+}
+.markdown-preview-view.cards table.dataview td:last-child {
+  padding-bottom: 0.8em;
+}
+/* A column with an image becomes the cover on top */
+.markdown-preview-view.cards table.dataview td:has(img) {
+  order: -1;
+  padding: 0;
+}
+.markdown-preview-view.cards table.dataview td img {
+  display: block;
+  width: 100%;
+  max-width: none;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* no-topo: no contour lines behind this note */
+body:not(.umbria-topo-off) .workspace-leaf-content[data-type="markdown"] > .view-content:has(> .markdown-source-view.no-topo, .markdown-preview-view.no-topo)::before,
+body:not(.umbria-topo-off) .workspace-leaf-content[data-type="markdown"] > .view-content:has(> .markdown-source-view.no-topo, .markdown-preview-view.no-topo)::after {
+  display: none;
 }
 
 /* --------------------------------------------------------------------------
@@ -1561,6 +1995,188 @@ progress::-webkit-progress-value {
   background: var(--umbria-moss);
 }
 
+/* Banners: the image fades into the page */
+.obsidian-banner.gradient:not(.error) {
+  -webkit-mask-image: linear-gradient(to bottom, black 45%, transparent);
+  mask-image: linear-gradient(to bottom, black 45%, transparent);
+}
+.obsidian-banner-icon .icon-box:hover {
+  background: var(--background-modifier-hover);
+}
+
+/* Iconize: icons in the quiet text colour, the active one in amber */
+:is(.nav-file-title, .nav-folder-title, .tree-item-self) .iconize-icon {
+  color: var(--text-muted);
+}
+:is(.nav-file-title, .tree-item-self).is-active .iconize-icon {
+  color: var(--umbria-accent);
+}
+.iconize-title-icon {
+  color: var(--umbria-accent);
+}
+
+/* Outliner: the clickable guide lines */
+.outliner-plugin-list-line:hover {
+  background: rgba(var(--umbria-accent-rgb), 0.35);
+}
+
+/* Omnisearch */
+body {
+  --omnisearch-highlight-color: rgba(var(--umbria-accent-rgb), 0.35);
+  --omnisearch-highlight-text-color: var(--text-normal);
+}
+.omnisearch-result__title {
+  font-weight: 600;
+}
+.omnisearch-result__counter,
+.omnisearch-result__folder-path {
+  color: var(--text-faint);
+}
+
+/* Kanban */
+.kanban-plugin__lane {
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-l);
+}
+.kanban-plugin__lane-title {
+  font-family: var(--umbria-head-font);
+  letter-spacing: var(--umbria-head-tracking);
+  font-weight: 600;
+}
+.kanban-plugin__item {
+  background: var(--umbria-card);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-m);
+  box-shadow: var(--umbria-shadow);
+}
+.kanban-plugin__item:hover {
+  border-color: rgba(var(--umbria-accent-rgb), 0.45);
+}
+
+/* --------------------------------------------------------------------------
+   FOCUS: visible rings for keyboard use
+   -------------------------------------------------------------------------- */
+
+:is(.clickable-icon, button, .nav-action-button, .workspace-tab-header, .checkbox-container):focus-visible {
+  outline: 2px solid var(--umbria-accent);
+  outline-offset: 1px;
+  box-shadow: none;
+}
+:is(.nav-file-title, .nav-folder-title, .tree-item-self, .suggestion-item):focus-visible {
+  outline: 2px solid var(--umbria-accent);
+  outline-offset: -2px;
+}
+.markdown-rendered a:focus-visible {
+  outline: 2px solid var(--umbria-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   QUIET INTERFACE (optional): chrome fades until you need it
+   -------------------------------------------------------------------------- */
+
+body.umbria-quiet :is(.workspace-ribbon, .status-bar, .view-actions, .workspace-tab-header:not(.is-active), .view-header-title-container) {
+  opacity: 0.4;
+  transition: opacity 300ms ease;
+}
+body.umbria-quiet :is(.workspace-ribbon, .status-bar, .view-actions, .workspace-tab-header:not(.is-active), .view-header-title-container):is(:hover, :focus-within) {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   MOBILE & TABLET
+   -------------------------------------------------------------------------- */
+
+.is-mobile {
+  --callout-padding: 12px 14px;
+}
+.is-phone:not(.umbria-plain-quotes) .markdown-rendered blockquote {
+  margin: 1.4em 0;
+  padding: 1.1em 1.1em 0.9em 1.3em;
+  font-size: 1.05em;
+}
+.is-phone:not(.umbria-plain-quotes) .markdown-rendered blockquote::before {
+  font-size: 3.4em;
+  left: 0.2em;
+}
+.is-phone:not(.umbria-plain-quotes) .callout:is([data-callout="quote"], [data-callout="cite"]) {
+  padding: 1.2em 1.2em 0.9em 1.3em;
+}
+.is-phone:not(.umbria-plain-quotes) .callout:is([data-callout="quote"], [data-callout="cite"]) > .callout-content {
+  font-size: 1.08em;
+}
+.is-phone:not(.umbria-topo-off) .workspace-leaf-content[data-type="markdown"] > .view-content::before {
+  -webkit-mask-size: 1100px auto;
+  mask-size: 1100px auto;
+}
+.is-phone:not(.umbria-topo-off) .workspace-leaf-content[data-type="markdown"] > .view-content::after {
+  background: radial-gradient(1060px 700px at 100% 100%, transparent 22%, color-mix(in srgb, var(--background-primary) 40%, transparent) 58%, var(--background-primary) 100%);
+}
+.is-phone .callout[data-callout="tiles"]:not([data-callout-metadata~="list"], [data-callout-metadata~="small"]) li {
+  min-height: 96px;
+  padding: 1rem 0.7rem;
+  font-size: calc(var(--tile-unit) * 1.6);
+}
+.is-phone .callout[data-callout="tiles"]:not([data-callout-metadata~="list"], [data-callout-metadata~="small"]) li a:is(.internal-link, .external-link) {
+  font-size: calc(var(--tile-unit) * 1.15);
+  letter-spacing: 0.05em;
+}
+.is-phone .markdown-preview-view.cards table.dataview tbody {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+.is-mobile .markdown-rendered :is(table, table.dataview) {
+  font-size: 0.84em;
+}
+.is-mobile :is(.markdown-rendered a.internal-link, .markdown-rendered a.external-link) {
+  transition: none;
+}
+
+/* --------------------------------------------------------------------------
+   PDF EXPORT & PRINT
+   Obsidian always exports in light mode; Umbria prints on white with the ink of the chosen wood.
+   -------------------------------------------------------------------------- */
+
+.print {
+  --background-primary: #ffffff;
+  --umbria-card: #ffffff;
+  --umbria-shadow: none;
+  --code-background: color-mix(in srgb, var(--background-secondary) 50%, white);
+}
+.print .markdown-preview-view {
+  background: #ffffff;
+}
+.print :is(blockquote, .callout, pre, .internal-embed.markdown-embed, table, .callout[data-callout="tiles"] li) {
+  box-shadow: none !important;
+  break-inside: avoid;
+}
+body .print .markdown-rendered blockquote,
+body .print .callout:is([data-callout="quote"], [data-callout="cite"]) {
+  border: 1px solid var(--background-modifier-border);
+}
+.print .callout[data-callout="tiles"] li {
+  transform: none;
+  min-height: 0;
+  padding: 0.8rem;
+}
+.print .callout[data-callout="tiles"] li::before {
+  display: none;
+}
+.print .callout[data-callout="tiles"] li > :is(.image-embed, img) {
+  display: none;
+}
+.print .markdown-rendered :is(a.internal-link, a.external-link) {
+  background: none;
+}
+.print :is(h1, h2, h3, h4, .inline-title) {
+  break-after: avoid;
+}
+.print .markdown-rendered pre {
+  white-space: pre-wrap;
+}
+
 /* --------------------------------------------------------------------------
    CALM: no motion
    -------------------------------------------------------------------------- */
@@ -1569,8 +2185,16 @@ body.umbria-no-motion,
 body.umbria-no-motion * {
   transition: none !important;
 }
+body.umbria-no-motion :is(.callout[data-callout="tiles"] li, .markdown-preview-view.cards table.dataview tbody tr):hover,
+body.umbria-no-motion .callout[data-callout="tiles"] li:hover > :is(.image-embed img, img) {
+  transform: none;
+}
 @media (prefers-reduced-motion: reduce) {
   body * {
     transition: none !important;
+  }
+  :is(.callout[data-callout="tiles"] li, .markdown-preview-view.cards table.dataview tbody tr):hover,
+  .callout[data-callout="tiles"] li:hover > :is(.image-embed img, img) {
+    transform: none !important;
   }
 }
